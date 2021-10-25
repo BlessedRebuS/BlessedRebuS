@@ -1,0 +1,17 @@
+Hi! My name is Patrick
+and i'm currently studying in Bologna, Bachelor's degree in Computer Engineering,
+
+I like doing coding project, CTFs, challenges,
+and being involved in all kind of tecnology stuff,
+from operating systems to electronic boards,
+but i'm also into how internally
+systems work
+
+My desktop setup:
+
+OS: Debian/Arch LTS
+VM: Kwin, I3
+DE: Gnome, KDE
+IDE: VSCode, Intellij, VIM
+
+
