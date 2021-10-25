@@ -13,5 +13,3 @@ OS: Debian/Arch LTS
 VM: Kwin, I3
 DE: Gnome, KDE
 IDE: VSCode, Intellij, VIM
-
-
