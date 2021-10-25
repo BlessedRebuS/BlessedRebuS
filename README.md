@@ -12,8 +12,8 @@
 <br />
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/BlessedRebuS/BlessedRebuS/blob/main/img/me.gif" />
-  <img width="460" height="300" src="https://i.pinimg.com/originals/70/37/d4/7037d478852af21357f038fac2d2e9f6.gif" />
+  <img width="650" height="400" src="https://github.com/BlessedRebuS/BlessedRebuS/blob/main/img/me.gif" />
+  <img width="650" height="400" src="https://i.pinimg.com/originals/70/37/d4/7037d478852af21357f038fac2d2e9f6.gif" />
 </p>
 
 <br />
