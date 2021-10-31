@@ -1,8 +1,7 @@
 <p align="center">
-  <a href="https://linkedin.com/in/patrick-di-fazio-9a0b72145"> </a>
-  <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue" />
-  <img src="https://img.shields.io/github/followers/blessedrebus.svg?style=social&label=Follow&maxAge=2592000" /> 
-</p>
+  <a href="https://linkedin.com/in/patrick-di-fazio-9a0b72145"> 
+  <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue" /> </a>
+  <img src="https://img.shields.io/github/followers/blessedrebus.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/blessedrebus?tab=followers"</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/NVIDIA-GTX1070-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
