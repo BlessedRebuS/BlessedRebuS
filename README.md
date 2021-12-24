@@ -51,7 +51,7 @@
 <hr/>
   <br/>
     <p align="center">
-        <img height="137px" src="https://github-readme-streak-stats.herokuapp.com/?user=blessedrebus&hide_border=false&theme=darcula" />
+        <img height="137px" src="https://github-readme-streak-stats.herokuapp.com/?user=blessedrebus&hide_border=true&theme=darcula" />
     </p>
     <p align="center">
         <img height="137px" src="https://github-readme-stats.vercel.app/api?username=blessedrebus&hide_title=true&hide_border=true&show_icons=true&include_all_commits=true&count_private=true&line_height=21&theme=darcula" /> 
