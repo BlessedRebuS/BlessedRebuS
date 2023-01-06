@@ -62,7 +62,6 @@
 <br/>
 <p align="right">
 <img src="https://komarev.com/ghpvc/?username=blessedrebus&style=plastic&label=Views" />
-<img src="https://badges.pufler.dev/years/blessedrebus" />
 </p>
 
 <!-- This part is inspired by https://github.com/brunotacca/brunotacca --> 
