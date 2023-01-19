@@ -17,7 +17,7 @@
 
 <br />
 
-<h3 align="left">I’m currently learning:</h3>
+<h3 align="left">I’m currently learning</h3>
 
 - `Electronics (EAGLE, Autodesk Fusion 360 Electronics, EasyEDA)` 
 - `Programming (Python)` 
@@ -26,7 +26,7 @@
 
 <hr />
 
-<h3 align="left">Languages and Tools:</h3>
+<h3 align="left">What do I use</h3>
 
 <details>
   <summary><b>Languages and Tools:</b></summary>
