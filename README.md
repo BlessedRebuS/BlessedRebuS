@@ -3,10 +3,6 @@
    <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue" /> </a>
    <img src="https://img.shields.io/github/followers/blessedrebus.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/blessedrebus?tab=followers"
 </p>
-<p align="center">
-   <img src="https://img.shields.io/badge/NVIDIA-GTX1070-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
-   <img src="https://img.shields.io/badge/Intel-Core_i5_6th-0071C5?style=for-the-badge&logo=intel&logoColor=white" />
-</p>
 <br />
 <p align="center">
    <img width="650" height="400" src="https://github.com/BlessedRebuS/BlessedRebuS/blob/main/img/me.gif" />
@@ -15,10 +11,10 @@
 <br />
 <h3 align="left">I’m currently learning</h3>
 
-- `Electronics (EAGLE, Autodesk Fusion 360 Electronics, EasyEDA)` 
-- `Programming (Python)` 
-- `Cybersecurity (Binary Exploitation)`
-- `Sysadmin (Linux)`
+- `Cloud Security` 
+- `System Security`
+- `Containerization and Virtualization (Kubernetes, Proxmox)`
+
 <hr />
 <h3 align="left">What do I use</h3>
 <summary><b>Programming Languages and Frameworks:</b></summary>
