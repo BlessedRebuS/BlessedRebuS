@@ -48,8 +48,9 @@
 <a href="https://www.virtualbox.org"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Virtualbox_logo.png?20150209215936" alt="vbox" width="40" height="40" /> </a>
 <a href="https://www.vmware.com/it.html"><img src="https://1000logos.net/wp-content/uploads/2021/05/VMware-logo.png" alt="vmware" width="60" height="45" /> </a>
 <a href="https://www.linux-kvm.org/page/Main_Page"><img src="https://www.whonix.org/w/images/0/0f/Kvm-new-logo.png" alt="kvm" width="45" height="40" /> </a>
-<a href="https://www.autodesk.com/products/eagle/overview"><img src="https://i0.wp.com/www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2021/06/autodesk-eagle-logo.png?ssl=1" alt="eagle" width="40" height="40" /> </a>
+<a href="https://www.autodesk.com/products/eagle/overview"><img src="https://i0.wp.com/www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2021/06/autodesk-eagle-logo.png?ssl=1" alt="eagle" width="42" height="42" /> </a>
 <a href="https://www.autodesk.it/products/fusion-360/overview?term=1-YEAR&tab=subscription"><img src="https://styles.redditmedia.com/t5_35qxp/styles/communityIcon_9saup479xvv01.png" alt="fusion" width="40" height="40" /> </a>
+<a href="https://www.proxmox.com/en/"><img src="https://play-lh.googleusercontent.com/TT36Nsjyt0Yn8eyPAXuNK0bJsXmryP9ovsp7qdOy9sulYlr7v2Le5Ckf0I9S3AiaaXs" alt="proxmox" width="40" height="40" /> </a>
 <hr/>
 <br/>
 <p align="center">
