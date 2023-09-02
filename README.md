@@ -51,6 +51,7 @@
 <a href="https://www.autodesk.com/products/eagle/overview"><img src="https://i0.wp.com/www.autodesk.com/products/fusion-360/blog/wp-content/uploads/2021/06/autodesk-eagle-logo.png?ssl=1" alt="eagle" width="42" height="42" /> </a>
 <a href="https://www.autodesk.it/products/fusion-360/overview?term=1-YEAR&tab=subscription"><img src="https://styles.redditmedia.com/t5_35qxp/styles/communityIcon_9saup479xvv01.png" alt="fusion" width="40" height="40" /> </a>
 <a href="https://www.proxmox.com/en/"><img src="https://play-lh.googleusercontent.com/TT36Nsjyt0Yn8eyPAXuNK0bJsXmryP9ovsp7qdOy9sulYlr7v2Le5Ckf0I9S3AiaaXs" alt="proxmox" width="40" height="40" /> </a>
+<a href="https://e7.pngegg.com/pngimages/284/474/png-clipart-active-directory-windows-server-2012-single-sign-on-microsoft-group-policy-blue-text.png" alt="activedirectory" width="40" height="40" /> </a>
 <hr/>
 <br/>
 <p align="center">
