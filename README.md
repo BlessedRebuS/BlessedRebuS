@@ -31,6 +31,6 @@
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/patrick-di-fazio-9a0b72145)
 ![Profile views](https://komarev.com/ghpvc/?username=blessedrebus&style=flat-square&color=185FA5&label=Views)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:11111b,35:6c7086,70:89b4fa,100:cba6f7&height=100&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:185FA5,100:0F6E56&height=100&section=footer" width="100%" />
 
 </div>
