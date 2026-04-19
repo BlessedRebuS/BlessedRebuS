@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="680" viewBox="0 0 1100 680" role="img" aria-label="blessedrebus terminal profile card">
   <defs>
     <style>
-      .mono { font-family: "Courier New", monospace; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
       .small { font-size: 10px; }
       .body { font-size: 12px; }
       .title { font-size: 15px; font-weight: bold; }
@@ -94,28 +94,16 @@
       .tw-m { opacity:0; animation: fadein 0.05s forwards; animation-delay: 7.03s; }
       .tw-i { opacity:0; animation: fadein 0.05s forwards; animation-delay: 7.15s; }
 
-      /* spinner frames */
-      @keyframes sp0  { 0%,9%{opacity:1}   10%,100%{opacity:0} }
-      @keyframes sp1  { 10%,19%{opacity:1} 0%,9%,20%,100%{opacity:0} }
-      @keyframes sp2  { 20%,29%{opacity:1} 0%,19%,30%,100%{opacity:0} }
-      @keyframes sp3  { 30%,39%{opacity:1} 0%,29%,40%,100%{opacity:0} }
-      @keyframes sp4  { 40%,49%{opacity:1} 0%,39%,50%,100%{opacity:0} }
-      @keyframes sp5  { 50%,59%{opacity:1} 0%,49%,60%,100%{opacity:0} }
-      @keyframes sp6  { 60%,69%{opacity:1} 0%,59%,70%,100%{opacity:0} }
-      @keyframes sp7  { 70%,79%{opacity:1} 0%,69%,80%,100%{opacity:0} }
-      @keyframes sp8  { 80%,89%{opacity:1} 0%,79%,90%,100%{opacity:0} }
-      @keyframes sp9  { 90%,100%{opacity:1} 0%,89%{opacity:0} }
+      /* ASCII spinner */
+      @keyframes sp0 { 0%,24%{opacity:1} 25%,100%{opacity:0} }
+      @keyframes sp1 { 25%,49%{opacity:1} 0%,24%,50%,100%{opacity:0} }
+      @keyframes sp2 { 50%,74%{opacity:1} 0%,49%,75%,100%{opacity:0} }
+      @keyframes sp3 { 75%,100%{opacity:1} 0%,74%{opacity:0} }
 
-      .spin0 { opacity:1; animation: sp0 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin1 { opacity:0; animation: sp1 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin2 { opacity:0; animation: sp2 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin3 { opacity:0; animation: sp3 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin4 { opacity:0; animation: sp4 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin5 { opacity:0; animation: sp5 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin6 { opacity:0; animation: sp6 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin7 { opacity:0; animation: sp7 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin8 { opacity:0; animation: sp8 0.72s step-end infinite; animation-delay: 2.5s; }
-      .spin9 { opacity:0; animation: sp9 0.72s step-end infinite; animation-delay: 2.5s; }
+      .spin0 { opacity:1; animation: sp0 0.5s step-end infinite; animation-delay: 2.5s; }
+      .spin1 { opacity:0; animation: sp1 0.5s step-end infinite; animation-delay: 2.5s; }
+      .spin2 { opacity:0; animation: sp2 0.5s step-end infinite; animation-delay: 2.5s; }
+      .spin3 { opacity:0; animation: sp3 0.5s step-end infinite; animation-delay: 2.5s; }
 
       @keyframes spinnerout { 0%{opacity:1} 100%{opacity:0} }
       .spinner-grp     { opacity:0; animation: fadein 0.1s forwards; animation-delay: 2.4s; }
@@ -168,14 +156,16 @@
   <!-- outer border -->
   <rect x="0.5" y="0.5" width="1099" height="679" rx="10" fill="transparent" stroke="#313244"/>
 
-  <!-- topbar -->
-  <rect x="1" y="1" width="1098" height="43" rx="10" fill="rgba(24,24,37,0.55)"/>
-  <rect x="1" y="34" width="1098" height="10" fill="rgba(24,24,37,0.55)"/>
-  <line x1="1" y1="44" x2="1099" y2="44" class="line"/>
-  <circle cx="21" cy="22" r="5.5" fill="#f38ba8"/>
-  <circle cx="40" cy="22" r="5.5" fill="#f9e2af"/>
-  <circle cx="59" cy="22" r="5.5" fill="#a6e3a1"/>
-  <text x="550" y="27" text-anchor="middle" class="mono small faint">[ catppuccin mocha - whoami - 128col ]</text>
+  <!-- header -->
+  <rect x="1" y="1" width="1098" height="43" rx="10" fill="#161b22"/>
+  <rect x="1" y="34" width="1098" height="10" fill="#161b22"/>
+  <line x1="1" y1="44" x2="1099" y2="44" stroke="#30363d" stroke-width="1"/>
+
+  <circle cx="21" cy="22" r="5.5" fill="#f85149"/>
+  <circle cx="40" cy="22" r="5.5" fill="#d29922"/>
+  <circle cx="59" cy="22" r="5.5" fill="#3fb950"/>
+
+  <text x="550" y="27" text-anchor="middle" class="mono small" fill="#8b949e">blessedrebus / whoami</text>
 
   <!-- INTRO GLITCH -->
   <g>
@@ -215,17 +205,12 @@
     <text x="40" y="244" class="mono small info-c b7">[ INFO ] Initializing whoami profile card...</text>
     <text x="40" y="266" class="mono small ok     b8">[  OK  ] All systems operational.</text>
     <text x="40" y="300" class="mono small purple b9">         Starting blessedrebus@arch session</text>
+
     <g class="spinner-grp spinner-grp-out">
-    <text x="622" y="300" class="mono small purple spin0">⠋</text>
-    <text x="622" y="300" class="mono small purple spin1">⠙</text>
-    <text x="622" y="300" class="mono small purple spin2">⠹</text>
-    <text x="622" y="300" class="mono small purple spin3">⠸</text>
-    <text x="622" y="300" class="mono small purple spin4">⠼</text>
-    <text x="622" y="300" class="mono small purple spin5">⠴</text>
-    <text x="622" y="300" class="mono small purple spin6">⠦</text>
-    <text x="622" y="300" class="mono small purple spin7">⠧</text>
-    <text x="622" y="300" class="mono small purple spin8">⠇</text>
-    <text x="622" y="300" class="mono small purple spin9">⠏</text>
+      <text x="262" y="300" class="mono small purple spin0">|</text>
+      <text x="262" y="300" class="mono small purple spin1">/</text>
+      <text x="262" y="300" class="mono small purple spin2">-</text>
+      <text x="262" y="300" class="mono small purple spin3">\</text>
     </g>
 
     <text x="40" y="300" class="mono small ok b10">         Starting blessedrebus@arch session  [ DONE ]</text>
