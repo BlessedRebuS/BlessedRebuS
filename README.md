@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:185FA5,100:0F6E56&height=120&section=header&text=Patrick+Di+Fazio&fontSize=32&fontColor=ffffff&fontAlignY=65&desc=Cloud+Security+%C2%B7+Infrastructure+%C2%B7+DevOps&descAlignY=85&descSize=14" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e1e2e,35:cba6f7,70:89b4fa,100:94e2d5&height=120&section=header&text=Patrick+Di+Fazio&fontSize=32&fontColor=cdd6f4&fontAlignY=65&desc=Offensive+Security+·+Infrastructure+·+DevOps&descAlignY=85&descSize=14" width="100%" />
+
+
 
 <img src="https://github.com/BlessedRebuS/BlessedRebuS/blob/beta/img/blessedrebus_svg_animated.svg" />
 
@@ -45,6 +47,7 @@ Containerization   →  Kubernetes · Proxmox · KVM · virtualization
 
 <img height="130px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=blessedrebus&hide=html&hide_border=true&layout=compact&langs_count=8&theme=tokyonight&bg_color=0d1117&title_color=58a6ff&text_color=8b949e" />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F6E56,100:185FA5&height=80&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e1e2e,35:cba6f7,70:89b4fa,100:94e2d5&height=80&section=footer" width="100%" />
+
 
 </div>
