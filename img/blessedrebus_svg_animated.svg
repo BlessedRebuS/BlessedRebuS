@@ -9,6 +9,7 @@
       .faint { fill: #45475a; }
       .blue { fill: #89b4fa; }
       .purple { fill: #cba6f7; }
+      .white { fill: #cdd6f4; }
       .pink { fill: #f38ba8; }
       .cyan { fill: #89dceb; }
       .teal { fill: #94e2d5; }
@@ -20,39 +21,69 @@
       .line { stroke: #313244; stroke-width: 1; fill: none; }
       a { text-decoration: none; }
 
+      /* cursor blink */
       @keyframes blink {
         0%, 49% { opacity: 1; }
         50%, 100% { opacity: 0; }
       }
       .cursor { animation: blink 0.9s step-end infinite; animation-delay: 7.4s; opacity: 0; }
 
-      @keyframes sweep {
-        0%   { transform: translateY(-60px); }
-        100% { transform: translateY(800px); }
-      }
-      .sweep { animation: sweep 5s linear infinite; animation-delay: 8s; }
-
-      @keyframes glitch {
-        0%,88%,100% { transform: none; opacity: 1; fill: #cba6f7; }
-        89% { transform: translateX(-4px); opacity: 0.6; fill: #f38ba8; }
-        90% { transform: translateX(4px);  opacity: 0.8; fill: #89b4fa; }
-        91% { transform: translateX(-2px) skewX(-5deg); opacity: 0.5; fill: #f38ba8; }
-        92% { transform: translateX(2px);  opacity: 0.9; fill: #cba6f7; }
-        93% { transform: translateX(-3px); opacity: 0.4; fill: #89b4fa; }
-        94% { transform: none; opacity: 1; fill: #cba6f7; }
-      }
-      .uname { animation: glitch 6s ease-in-out infinite; animation-delay: 11s; fill: #cba6f7; }
-
+      /* fade in */
       @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
+      /* slide in from left */
       @keyframes slidein {
         from { opacity: 0; transform: translateX(-12px); }
         to   { opacity: 1; transform: translateX(0); }
       }
 
+      /* divider line draw */
       @keyframes drawline {
         from { stroke-dashoffset: 1100; }
         to   { stroke-dashoffset: 0; }
+      }
+
+      /* intro glitch */
+      @keyframes introglitch {
+        0%   { opacity: 0; transform: translate(0,0); }
+        5%   { opacity: 0.95; transform: translate(-2px,1px); }
+        10%  { opacity: 0.35; transform: translate(2px,-1px); }
+        15%  { opacity: 0.9; transform: translate(-1px,-1px); }
+        20%  { opacity: 0.25; transform: translate(3px,1px); }
+        25%  { opacity: 0.85; transform: translate(-3px,0); }
+        30%  { opacity: 0.2; transform: translate(2px,2px); }
+        35%  { opacity: 0.75; transform: translate(-2px,-2px); }
+        40%  { opacity: 0.15; transform: translate(1px,0); }
+        45%  { opacity: 0.65; transform: translate(-1px,1px); }
+        50%  { opacity: 0.08; transform: translate(0,0); }
+        100% { opacity: 0; transform: translate(0,0); }
+      }
+
+      @keyframes glitchbar {
+        0%   { opacity: 0; transform: translateY(0); }
+        8%   { opacity: 0.8; transform: translateY(-2px); }
+        16%  { opacity: 0.15; transform: translateY(1px); }
+        24%  { opacity: 0.7; transform: translateY(-1px); }
+        32%  { opacity: 0.12; transform: translateY(2px); }
+        40%  { opacity: 0.6; transform: translateY(-3px); }
+        48%  { opacity: 0.08; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(0); }
+      }
+
+      .glitch-layer-1 {
+        opacity: 0;
+        animation: introglitch 0.9s steps(2, end) forwards;
+      }
+
+      .glitch-layer-2 {
+        opacity: 0;
+        animation: introglitch 0.9s steps(2, end) forwards;
+        animation-delay: 0.05s;
+      }
+
+      .glitch-scan {
+        opacity: 0;
+        animation: glitchbar 0.9s steps(2, end) forwards;
       }
 
       /* typewriter chars */
@@ -87,7 +118,7 @@
       .spin9 { opacity:0; animation: sp9 0.72s step-end infinite; animation-delay: 2.5s; }
 
       @keyframes spinnerout { 0%{opacity:1} 100%{opacity:0} }
-      .spinner-grp { opacity:0; animation: fadein 0.1s forwards; animation-delay: 2.4s; }
+      .spinner-grp     { opacity:0; animation: fadein 0.1s forwards; animation-delay: 2.4s; }
       .spinner-grp-out { animation: spinnerout 0.3s forwards; animation-delay: 4.9s; }
 
       /* boot lines */
@@ -103,10 +134,11 @@
       .b9  { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 2.3s; }
       .b10 { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 5.0s; }
 
+      /* boot overlay */
       @keyframes bootout { 0%{opacity:1} 100%{opacity:0} }
-      .bootbg   { animation: bootout 0.6s forwards; animation-delay: 5.8s; }
       .boottext { animation: bootout 0.5s forwards; animation-delay: 5.6s; }
 
+      /* prompt + content */
       .prompt-static { opacity:0; animation: fadein 0.3s forwards; animation-delay: 6.3s; }
 
       .sh-system   { opacity:0; animation: fadein 0.3s forwards; animation-delay: 7.5s; }
@@ -131,27 +163,47 @@
       .r9  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.4s; }
       .r10 { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.55s; }
     </style>
-
-    <linearGradient id="sweepgrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#cba6f7" stop-opacity="0"/>
-      <stop offset="50%"  stop-color="#cba6f7" stop-opacity="0.04"/>
-      <stop offset="100%" stop-color="#cba6f7" stop-opacity="0"/>
-    </linearGradient>
   </defs>
 
+  <!-- outer border -->
   <rect x="0.5" y="0.5" width="1099" height="679" rx="10" fill="transparent" stroke="#313244"/>
+
+  <!-- topbar -->
   <rect x="1" y="1" width="1098" height="43" rx="10" fill="rgba(24,24,37,0.55)"/>
   <rect x="1" y="34" width="1098" height="10" fill="rgba(24,24,37,0.55)"/>
   <line x1="1" y1="44" x2="1099" y2="44" class="line"/>
   <circle cx="21" cy="22" r="5.5" fill="#f38ba8"/>
   <circle cx="40" cy="22" r="5.5" fill="#f9e2af"/>
   <circle cx="59" cy="22" r="5.5" fill="#a6e3a1"/>
-  <text x="550" y="27" text-anchor="middle" class="mono small faint">[ catppuccin mocha — whoami — 128col ]</text>
+  <text x="550" y="27" text-anchor="middle" class="mono small faint">[ catppuccin mocha - whoami - 128col ]</text>
 
-  <rect class="sweep" x="0" y="-60" width="1100" height="60" fill="url(#sweepgrad)" pointer-events="none"/>
+  <!-- INTRO GLITCH -->
+  <g>
+    <g class="glitch-layer-1">
+      <text x="39" y="90" class="mono small" fill="#f5c2e7">[  OK  ] Started kernel event logging daemon.</text>
+      <text x="39" y="112" class="mono small" fill="#f5c2e7">[  OK  ] Reached target System Initialization.</text>
+      <text x="39" y="134" class="mono small" fill="#cba6f7">[ INFO ] Loading catppuccin mocha colorscheme...</text>
+      <text x="39" y="156" class="mono small" fill="#f5c2e7">[  OK  ] Mounted /home/blessedrebus.</text>
+      <text x="39" y="178" class="mono small" fill="#f5c2e7">[  OK  ] Started zsh session manager.</text>
+    </g>
+
+    <g class="glitch-layer-2">
+      <text x="41" y="89" class="mono small" fill="#89dceb">[  OK  ] Started kernel event logging daemon.</text>
+      <text x="41" y="111" class="mono small" fill="#89dceb">[  OK  ] Reached target System Initialization.</text>
+      <text x="41" y="133" class="mono small" fill="#89b4fa">[ INFO ] Loading catppuccin mocha colorscheme...</text>
+      <text x="41" y="155" class="mono small" fill="#89dceb">[  OK  ] Mounted /home/blessedrebus.</text>
+      <text x="41" y="177" class="mono small" fill="#89dceb">[  OK  ] Started zsh session manager.</text>
+    </g>
+
+    <g class="glitch-scan">
+      <rect x="24" y="82" width="760" height="10" fill="rgba(203,166,247,0.10)"/>
+      <rect x="32" y="128" width="690" height="7" fill="rgba(137,180,250,0.12)"/>
+      <rect x="20" y="170" width="820" height="8" fill="rgba(243,139,168,0.10)"/>
+      <rect x="0" y="212" width="1100" height="2" fill="rgba(255,255,255,0.04)"/>
+    </g>
+  </g>
 
   <!-- BOOT -->
-  <rect class="bootbg" x="1" y="44" width="1098" height="635" fill="#080b0f"/>
   <g class="boottext">
     <text x="40" y="90"  class="mono small ok     b0">[  OK  ] Started kernel event logging daemon.</text>
     <text x="40" y="112" class="mono small ok     b1">[  OK  ] Reached target System Initialization.</text>
@@ -163,28 +215,29 @@
     <text x="40" y="244" class="mono small info-c b7">[ INFO ] Initializing whoami profile card...</text>
     <text x="40" y="266" class="mono small ok     b8">[  OK  ] All systems operational.</text>
     <text x="40" y="300" class="mono small purple b9">         Starting blessedrebus@arch session</text>
-    <!-- spinner -->
     <g class="spinner-grp spinner-grp-out">
-      <text x="622" y="300" class="mono small purple spin0">⠋</text>
-      <text x="622" y="300" class="mono small purple spin1">⠙</text>
-      <text x="622" y="300" class="mono small purple spin2">⠹</text>
-      <text x="622" y="300" class="mono small purple spin3">⠸</text>
-      <text x="622" y="300" class="mono small purple spin4">⠼</text>
-      <text x="622" y="300" class="mono small purple spin5">⠴</text>
-      <text x="622" y="300" class="mono small purple spin6">⠦</text>
-      <text x="622" y="300" class="mono small purple spin7">⠧</text>
-      <text x="622" y="300" class="mono small purple spin8">⠇</text>
-      <text x="622" y="300" class="mono small purple spin9">⠏</text>
+    <text x="622" y="300" class="mono small purple spin0">⠋</text>
+    <text x="622" y="300" class="mono small purple spin1">⠙</text>
+    <text x="622" y="300" class="mono small purple spin2">⠹</text>
+    <text x="622" y="300" class="mono small purple spin3">⠸</text>
+    <text x="622" y="300" class="mono small purple spin4">⠼</text>
+    <text x="622" y="300" class="mono small purple spin5">⠴</text>
+    <text x="622" y="300" class="mono small purple spin6">⠦</text>
+    <text x="622" y="300" class="mono small purple spin7">⠧</text>
+    <text x="622" y="300" class="mono small purple spin8">⠇</text>
+    <text x="622" y="300" class="mono small purple spin9">⠏</text>
     </g>
+
     <text x="40" y="300" class="mono small ok b10">         Starting blessedrebus@arch session  [ DONE ]</text>
   </g>
 
   <!-- PROMPT -->
   <g class="prompt-static">
     <text x="24"  y="88" class="mono body faint">❯</text>
-    <text x="46"  y="88" class="mono title uname">blessedrebus@arch</text>
+    <text x="46"  y="88" class="mono title white">blessedrebus@arch</text>
     <text x="204" y="88" class="mono body faint">~</text>
   </g>
+
   <!-- typewriter whoami -->
   <text x="226" y="88" class="mono body muted tw-w">w</text>
   <text x="233" y="88" class="mono body muted tw-h">h</text>
@@ -195,103 +248,84 @@
   <rect class="cursor" x="270" y="75" width="9" height="14" fill="#cba6f7"/>
 
   <!-- SYSTEM -->
-  <text x="24" y="128" class="mono small muted sh-system">system</text>
+  <text x="24" y="128" class="mono small muted sh-system">System</text>
   <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system"/>
   <g class="r0">
-    <text x="24" y="164" class="mono body blue">os</text>
-    <text x="140" y="164" class="mono small" fill="#1e2535">..............</text>
-    <rect x="988" y="152" width="88" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
-    <text x="1032" y="167" text-anchor="middle" class="mono small blue">arch linux</text>
+    <text x="24" y="164" class="mono body blue">OS</text>
+    <text x="145" y="164" class="mono small" fill="#1e2535">..............</text>
+    <text x="1032" y="167" text-anchor="middle" class="mono small blue">Arch Linux</text>
   </g>
   <g class="r1">
-    <text x="24" y="196" class="mono body blue">uptime</text>
-    <text x="140" y="196" class="mono small" fill="#1e2535">..............</text>
-    <rect x="986" y="184" width="90" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
-    <text x="1031" y="199" text-anchor="middle" class="mono small blue">since birth</text>
+    <text x="24" y="196" class="mono body blue">Uptime</text>
+    <text x="145" y="196" class="mono small" fill="#1e2535">..............</text>
+    <text x="1031" y="199" text-anchor="middle" class="mono small blue">Since Birth</text>
   </g>
   <g class="r2">
-    <text x="24" y="228" class="mono body blue">shell</text>
-    <text x="140" y="228" class="mono small" fill="#1e2535">..............</text>
-    <rect x="1024" y="216" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
-    <text x="1050" y="231" text-anchor="middle" class="mono small blue">zsh</text>
+    <text x="24" y="228" class="mono body blue">Shell</text>
+    <text x="145" y="228" class="mono small" fill="#1e2535">..............</text>
+    <text x="1050" y="231" text-anchor="middle" class="mono small blue">ZSH</text>
   </g>
   <g class="r3">
-    <text x="24" y="260" class="mono body blue">editor</text>
-    <text x="140" y="260" class="mono small" fill="#1e2535">..............</text>
-    <rect x="1024" y="248" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
-    <text x="1050" y="263" text-anchor="middle" class="mono small blue">vim</text>
+    <text x="24" y="260" class="mono body blue">Editor</text>
+    <text x="145" y="260" class="mono small" fill="#1e2535">..............</text>
+    <text x="1050" y="263" text-anchor="middle" class="mono small blue">Vim</text>
   </g>
   <g class="r4">
-    <text x="24" y="292" class="mono body blue">wm</text>
-    <text x="140" y="292" class="mono small" fill="#1e2535">..............</text>
-    <rect x="1000" y="280" width="76" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
-    <text x="1038" y="295" text-anchor="middle" class="mono small blue">hyprland</text>
+    <text x="24" y="292" class="mono body blue">WM</text>
+    <text x="145" y="292" class="mono small" fill="#1e2535">..............</text>
+    <text x="1038" y="295" text-anchor="middle" class="mono small blue">Hyprland</text>
   </g>
   <g class="r5">
-    <text x="24" y="324" class="mono body blue">terminal</text>
-    <text x="140" y="324" class="mono small" fill="#1e2535">..............</text>
-    <rect x="1024" y="312" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
-    <text x="1050" y="327" text-anchor="middle" class="mono small blue">kitty</text>
+    <text x="24" y="324" class="mono body blue">Terminal</text>
+    <text x="145" y="324" class="mono small" fill="#1e2535">..............</text>
+    <text x="1050" y="327" text-anchor="middle" class="mono small blue">Kitty</text>
   </g>
 
   <!-- FOCUS -->
-  <text x="24" y="366" class="mono small muted sh-focus">focus</text>
+  <text x="24" y="366" class="mono small muted sh-focus">Focus</text>
   <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus"/>
   <g class="r6">
-    <text x="24" y="398" class="mono body pink">security</text>
-    <text x="140" y="398" class="mono small" fill="#1e2535">..............</text>
-    <rect x="880" y="386" width="98"  height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
-    <text x="929"  y="401" text-anchor="middle" class="mono small pink">ethical hacking</text>
-    <rect x="984" y="386" width="92"  height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
-    <text x="1030" y="401" text-anchor="middle" class="mono small pink">red teaming</text>
+    <text x="24" y="398" class="mono body pink">Security</text>
+    <text x="145" y="398" class="mono small" fill="#1e2535">..............</text>
+    <text x="917"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
+    <text x="1029" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
   </g>
   <g class="r7">
-    <text x="24" y="430" class="mono body peach">infrastructure</text>
-    <text x="140" y="430" class="mono small" fill="#1e2535">..............</text>
-    <rect x="810" y="418" width="82" height="22" rx="11" fill="rgba(250,179,135,0.12)"/>
+    <text x="24" y="430" class="mono body peach">Infrastructure</text>
+    <text x="145" y="430" class="mono small" fill="#1e2535">..............</text>
     <text x="851"  y="433" text-anchor="middle" class="mono small peach">Kubernetes</text>
-    <rect x="898" y="418" width="62" height="22" rx="11" fill="rgba(250,179,135,0.12)"/>
     <text x="929"  y="433" text-anchor="middle" class="mono small peach">Proxmox</text>
-    <rect x="966" y="418" width="44" height="22" rx="11" fill="rgba(250,179,135,0.12)"/>
     <text x="988"  y="433" text-anchor="middle" class="mono small peach">AWS</text>
-    <rect x="1016" y="418" width="60" height="22" rx="11" fill="rgba(250,179,135,0.12)"/>
     <text x="1046" y="433" text-anchor="middle" class="mono small peach">Azure</text>
   </g>
 
   <!-- OTHER -->
-  <text x="24" y="474" class="mono small muted sh-other">other</text>
+  <text x="24" y="474" class="mono small muted sh-other">Other</text>
   <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other"/>
   <g class="r8">
-    <text x="24" y="506" class="mono body purple">certifications</text>
-    <text x="140" y="506" class="mono small" fill="#1e2535">..............</text>
-    <rect x="638" y="494" width="48"  height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="24" y="506" class="mono body purple">Certifications</text>
+    <text x="145" y="506" class="mono small" fill="#1e2535">..............</text>
     <text x="662"  y="509" text-anchor="middle" class="mono small purple">OSCP</text>
-    <rect x="692" y="494" width="92"  height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
     <text x="738"  y="509" text-anchor="middle" class="mono small purple">Kubestronaut</text>
-    <rect x="790" y="494" width="148" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
     <text x="864"  y="509" text-anchor="middle" class="mono small purple">AWS Security Specialist</text>
-    <rect x="944" y="494" width="76"  height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
     <text x="982"  y="509" text-anchor="middle" class="mono small purple">Terraform</text>
-    <rect x="1026" y="494" width="50"  height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
     <text x="1051" y="509" text-anchor="middle" class="mono small purple">Cisco</text>
   </g>
 
   <!-- PROJECTS -->
-  <text x="24" y="548" class="mono small muted sh-projects">projects</text>
+  <text x="24" y="548" class="mono small muted sh-projects">Projects</text>
   <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects"/>
   <g class="r9">
     <text x="24" y="580" class="mono body teal">Krawl Honeypot</text>
-    <text x="140" y="580" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="580" class="mono small" fill="#1e2535">..............</text>
     <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank">
-      <rect x="902" y="568" width="174" height="22" rx="11" fill="rgba(137,220,235,0.12)"/>
       <text x="989" y="583" text-anchor="middle" class="mono small cyan">BlessedRebuS/Krawl</text>
     </a>
   </g>
   <g class="r10">
     <text x="24" y="612" class="mono body teal">Kentra Framework</text>
-    <text x="140" y="612" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="612" class="mono small" fill="#1e2535">..............</text>
     <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank">
-      <rect x="894" y="600" width="182" height="22" rx="11" fill="rgba(137,220,235,0.12)"/>
       <text x="985" y="615" text-anchor="middle" class="mono small cyan">BlessedRebuS/Kentra</text>
     </a>
   </g>
