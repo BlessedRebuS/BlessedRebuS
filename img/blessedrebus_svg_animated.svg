@@ -243,34 +243,43 @@
   <!-- FOCUS -->
   <text x="24" y="366" class="mono small muted sh-focus">Focus</text>
   <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus"/>
-  <g class="r6">
+    <g class="r6">
     <text x="24" y="398" class="mono body pink">Security</text>
     <text x="145" y="398" class="mono small" fill="#1e2535">........................................................................................................</text>
-    <text x="900"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
-    <text x="965"  y="401" text-anchor="middle" class="mono small muted">/</text>
-    <text x="1035" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
-  </g>
-  <g class="r7">
+    <text x="910"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
+    <text x="965"  y="401" text-anchor="middle" class="mono small muted" font-size="6">|</text>
+    <text x="1010" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
+    </g>
+
+    <g class="r7">
     <text x="24" y="430" class="mono body peach">Infrastructure</text>
     <text x="145" y="430" class="mono small" fill="#1e2535">........................................................................................................</text>
-    <text x="851"  y="433" text-anchor="middle" class="mono small peach">Kubernetes</text>
-    <text x="929"  y="433" text-anchor="middle" class="mono small peach">Proxmox</text>
-    <text x="988"  y="433" text-anchor="middle" class="mono small peach">AWS</text>
-    <text x="1046" y="433" text-anchor="middle" class="mono small peach">Azure</text>
-  </g>
+    <text x="822"  y="433" text-anchor="middle" class="mono small peach">Kubernetes</text>
+    <text x="862"  y="433" text-anchor="middle" class="mono small muted" font-size="6">|</text>
+    <text x="902"  y="433" text-anchor="middle" class="mono small peach">Proxmox</text>
+    <text x="934"  y="433" text-anchor="middle" class="mono small muted" font-size="6">|</text>
+    <text x="964"  y="433" text-anchor="middle" class="mono small peach">AWS</text>
+    <text x="984"  y="433" text-anchor="middle" class="mono small muted" font-size="6">|</text>
+    <text x="1018" y="433" text-anchor="middle" class="mono small peach">Azure</text>
+    </g>
 
   <!-- OTHER -->
   <text x="24" y="474" class="mono small muted sh-other">Other</text>
   <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other"/>
-  <g class="r8">
+    <g class="r8">
     <text x="24" y="506" class="mono body purple">Certifications</text>
     <text x="145" y="506" class="mono small" fill="#1e2535">............................................................................</text>
-    <text x="662"  y="509" text-anchor="middle" class="mono small purple">OSCP</text>
-    <text x="738"  y="509" text-anchor="middle" class="mono small purple">Kubestronaut</text>
-    <text x="864"  y="509" text-anchor="middle" class="mono small purple">AWS Security Specialist</text>
-    <text x="982"  y="509" text-anchor="middle" class="mono small purple">Terraform</text>
-    <text x="1051" y="509" text-anchor="middle" class="mono small purple">Cisco</text>
-  </g>
+    <text x="625"  y="509" text-anchor="middle" class="mono small purple">OSCP</text>
+    <text x="648"  y="509" text-anchor="middle" class="mono small muted">|</text>
+    <text x="706"  y="509" text-anchor="middle" class="mono small purple">Kubestronaut</text>
+    <text x="754"  y="509" text-anchor="middle" class="mono small muted">|</text>
+    <text x="840"  y="509" text-anchor="middle" class="mono small purple">AWS Security Specialist</text>
+    <text x="926"  y="509" text-anchor="middle" class="mono small muted">|</text>
+    <text x="964"  y="509" text-anchor="middle" class="mono small purple">Terraform</text>
+    <text x="1002" y="509" text-anchor="middle" class="mono small muted">|</text>
+    <text x="1038" y="509" text-anchor="middle" class="mono small purple">Cisco</text>
+    </g>
+
 
   <!-- PROJECTS -->
   <text x="24" y="548" class="mono small muted sh-projects">Projects</text>
