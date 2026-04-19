@@ -72,18 +72,18 @@
 
       .glitch-layer-1 {
         opacity: 0;
-        animation: introglitch 0.9s steps(2, end) forwards;
+        animation: introglitch 5s steps(2, end) forwards;
       }
 
       .glitch-layer-2 {
         opacity: 0;
-        animation: introglitch 0.9s steps(2, end) forwards;
-        animation-delay: 0.05s;
+        animation: introglitch 3s steps(2, end) forwards;
+        animation-delay: 1s;
       }
 
       .glitch-scan {
         opacity: 0;
-        animation: glitchbar 0.9s steps(2, end) forwards;
+        animation: glitchbar 5s steps(2, end) forwards;
       }
 
       /* typewriter chars */
@@ -220,7 +220,7 @@
   <g class="prompt-static">
     <text x="24"  y="88" class="mono body faint">❯</text>
     <text x="46"  y="88" class="mono title white">blessedrebus@arch</text>
-    <text x="204" y="88" class="mono body faint">~</text>
+    <text x="210" y="88" class="mono body faint">~</text>
   </g>
 
   <!-- typewriter whoami -->
@@ -237,32 +237,32 @@
   <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system"/>
   <g class="r0">
     <text x="24" y="164" class="mono body blue">OS</text>
-    <text x="145" y="164" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="164" class="mono small" fill="#1e2535">......................................................................................................................................</text>
     <text x="1032" y="167" text-anchor="middle" class="mono small blue">Arch Linux</text>
   </g>
   <g class="r1">
     <text x="24" y="196" class="mono body blue">Uptime</text>
-    <text x="145" y="196" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="196" class="mono small" fill="#1e2535">......................................................................................................................................</text>
     <text x="1031" y="199" text-anchor="middle" class="mono small blue">Since Birth</text>
   </g>
   <g class="r2">
     <text x="24" y="228" class="mono body blue">Shell</text>
-    <text x="145" y="228" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="228" class="mono small" fill="#1e2535">......................................................................................................................................</text>
     <text x="1050" y="231" text-anchor="middle" class="mono small blue">ZSH</text>
   </g>
   <g class="r3">
     <text x="24" y="260" class="mono body blue">Editor</text>
-    <text x="145" y="260" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="260" class="mono small" fill="#1e2535">......................................................................................................................................</text>
     <text x="1050" y="263" text-anchor="middle" class="mono small blue">Vim</text>
   </g>
   <g class="r4">
     <text x="24" y="292" class="mono body blue">WM</text>
-    <text x="145" y="292" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="292" class="mono small" fill="#1e2535">......................................................................................................................................</text>
     <text x="1038" y="295" text-anchor="middle" class="mono small blue">Hyprland</text>
   </g>
   <g class="r5">
     <text x="24" y="324" class="mono body blue">Terminal</text>
-    <text x="145" y="324" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="324" class="mono small" fill="#1e2535">......................................................................................................................................</text>
     <text x="1050" y="327" text-anchor="middle" class="mono small blue">Kitty</text>
   </g>
 
@@ -271,13 +271,13 @@
   <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus"/>
   <g class="r6">
     <text x="24" y="398" class="mono body pink">Security</text>
-    <text x="145" y="398" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="398" class="mono small" fill="#1e2535">........................................................................................................</text>
     <text x="917"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
     <text x="1029" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
   </g>
   <g class="r7">
     <text x="24" y="430" class="mono body peach">Infrastructure</text>
-    <text x="145" y="430" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="430" class="mono small" fill="#1e2535">........................................................................................................</text>
     <text x="851"  y="433" text-anchor="middle" class="mono small peach">Kubernetes</text>
     <text x="929"  y="433" text-anchor="middle" class="mono small peach">Proxmox</text>
     <text x="988"  y="433" text-anchor="middle" class="mono small peach">AWS</text>
@@ -289,7 +289,7 @@
   <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other"/>
   <g class="r8">
     <text x="24" y="506" class="mono body purple">Certifications</text>
-    <text x="145" y="506" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="506" class="mono small" fill="#1e2535">............................................................................</text>
     <text x="662"  y="509" text-anchor="middle" class="mono small purple">OSCP</text>
     <text x="738"  y="509" text-anchor="middle" class="mono small purple">Kubestronaut</text>
     <text x="864"  y="509" text-anchor="middle" class="mono small purple">AWS Security Specialist</text>
@@ -302,14 +302,14 @@
   <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects"/>
   <g class="r9">
     <text x="24" y="580" class="mono body teal">Krawl Honeypot</text>
-    <text x="145" y="580" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="580" class="mono small" fill="#1e2535">...........................................................................................................................</text>
     <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank">
       <text x="989" y="583" text-anchor="middle" class="mono small cyan">BlessedRebuS/Krawl</text>
     </a>
   </g>
   <g class="r10">
     <text x="24" y="612" class="mono body teal">Kentra Framework</text>
-    <text x="145" y="612" class="mono small" fill="#1e2535">..............</text>
+    <text x="145" y="612" class="mono small" fill="#1e2535">...........................................................................................................................</text>
     <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank">
       <text x="985" y="615" text-anchor="middle" class="mono small cyan">BlessedRebuS/Kentra</text>
     </a>
