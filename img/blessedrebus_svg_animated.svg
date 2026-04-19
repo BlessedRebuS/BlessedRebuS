@@ -1,6 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="750" viewBox="0 0 1110 750" role="img" aria-label="blessedrebus terminal profile card" style="">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="740" viewBox="0 0 1100 740" role="img" aria-label="blessedrebus terminal profile card">
   <defs>
-    
+    <style>
+      .mono { font-family: "Courier New", monospace; }
+      .small { font-size: 10px; }
+      .body { font-size: 12px; }
+      .title { font-size: 15px; font-weight: bold; }
+      .muted { fill: #6c7086; }
+      .faint { fill: #45475a; }
+      .blue { fill: #89b4fa; }
+      .purple { fill: #cba6f7; }
+      .pink { fill: #f38ba8; }
+      .cyan { fill: #89dceb; }
+      .teal { fill: #94e2d5; }
+      .yellow { fill: #f9e2af; }
+      .ok { fill: #a6e3a1; }
+      .info-c { fill: #89b4fa; }
+      .warn { fill: #f9e2af; }
+      .line { stroke: #313244; stroke-width: 1; fill: none; }
+      a { text-decoration: none; }
+
+      /* ── cursor blink ── */
+      @keyframes blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+      .cursor { animation: blink 0.9s step-end infinite; animation-delay: 7.8s; opacity: 0; }
+
+      /* ── sweep light ── */
+      @keyframes sweep {
+        0%   { transform: translateY(-60px); }
+        100% { transform: translateY(800px); }
+      }
+      .sweep { animation: sweep 5s linear infinite; animation-delay: 8s; }
+
+      /* ── glitch on username ── */
+      @keyframes glitch {
+        0%,90%,100% { transform: none; opacity: 1; fill: #cba6f7; }
+        91%          { transform: translateX(-3px); opacity: 0.7; fill: #f38ba8; }
+        93%          { transform: translateX(3px);  opacity: 0.8; fill: #89b4fa; }
+        95%          { transform: translateX(-2px); opacity: 0.6; fill: #f38ba8; }
+        97%          { transform: none; opacity: 1; fill: #cba6f7; }
+      }
+      .uname { animation: glitch 7s ease-in-out infinite; animation-delay: 12s; fill: #cba6f7; }
+
+      /* ── generic fade in ── */
+      @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      /* ── slide in from left ── */
+      @keyframes slidein {
+        from { opacity: 0; transform: translateX(-10px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+
+      /* ── divider line draw ── */
+      @keyframes drawline {
+        from { stroke-dashoffset: 1000; }
+        to   { stroke-dashoffset: 0; }
+      }
+
+      /* ── BOOT LINES ── */
+      .b0  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.1s; }
+      .b1  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.35s; }
+      .b2  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.6s; }
+      .b3  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.85s; }
+      .b4  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.1s; }
+      .b5  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.35s; }
+      .b6  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.6s; }
+      .b7  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.85s; }
+      .b8  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 2.1s; }
+      .b9  { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 2.5s; }
+      .b10 { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 3.8s; }
+
+      /* boot overlay fades out */
+      @keyframes bootout {
+        0%   { opacity: 1; }
+        100% { opacity: 0; pointer-events: none; }
+      }
+      .bootbg   { animation: bootout 0.6s forwards; animation-delay: 5.8s; }
+      .boottext { animation: bootout 0.5s forwards; animation-delay: 5.6s; }
+
+      /* ── PROMPT ── */
+      .prompt { opacity:0; animation: fadein 0.3s forwards; animation-delay: 6.5s; }
+
+      /* ── SECTION HEADERS ── */
+      .sh-system   { opacity:0; animation: fadein 0.3s forwards; animation-delay: 7.4s; }
+      .sh-focus    { opacity:0; animation: fadein 0.3s forwards; animation-delay: 9.0s; }
+      .sh-other    { opacity:0; animation: fadein 0.3s forwards; animation-delay: 9.9s; }
+      .sh-projects { opacity:0; animation: fadein 0.3s forwards; animation-delay: 10.8s; }
+
+      /* ── DIVIDER LINES ── */
+      .dl-system   { stroke-dasharray:1000; stroke-dashoffset:1000; animation: drawline 0.4s forwards; animation-delay: 7.5s; }
+      .dl-focus    { stroke-dasharray:1000; stroke-dashoffset:1000; animation: drawline 0.4s forwards; animation-delay: 9.1s; }
+      .dl-other    { stroke-dasharray:1000; stroke-dashoffset:1000; animation: drawline 0.4s forwards; animation-delay: 10.0s; }
+      .dl-projects { stroke-dasharray:1000; stroke-dashoffset:1000; animation: drawline 0.4s forwards; animation-delay: 10.9s; }
+
+      /* ── ROWS ── */
+      .r0  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 7.95s; }
+      .r1  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.1s; }
+      .r2  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.25s; }
+      .r3  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.4s; }
+      .r4  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.55s; }
+      .r5  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.7s; }
+      .r6  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 9.5s; }
+      .r7  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 9.65s; }
+      .r8  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 10.45s; }
+      .r9  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.25s; }
+      .r10 { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.4s; }
+      .r11 { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.55s; }
+    </style>
 
     <pattern id="scanlines" x="0" y="0" width="1100" height="4" patternUnits="userSpaceOnUse">
       <rect x="0" y="0" width="1100" height="3" fill="transparent"/>
@@ -8,272 +118,165 @@
     </pattern>
     <linearGradient id="sweepgrad" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#cba6f7" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#cba6f7" stop-opacity="0.03"/>
+      <stop offset="50%" stop-color="#cba6f7" stop-opacity="0.035"/>
       <stop offset="100%" stop-color="#cba6f7" stop-opacity="0"/>
     </linearGradient>
-
-    <clipPath id="cp0"><rect x="0" y="148" width="1100" height="24"/></clipPath>
-    <clipPath id="cp1"><rect x="0" y="180" width="1100" height="24"/></clipPath>
-    <clipPath id="cp2"><rect x="0" y="212" width="1100" height="24"/></clipPath>
-    <clipPath id="cp3"><rect x="0" y="244" width="1100" height="24"/></clipPath>
-    <clipPath id="cp4"><rect x="0" y="276" width="1100" height="24"/></clipPath>
-    <clipPath id="cp5"><rect x="0" y="308" width="1100" height="24"/></clipPath>
-    <clipPath id="cp6"><rect x="0" y="384" width="1100" height="24"/></clipPath>
-    <clipPath id="cp7"><rect x="0" y="416" width="1100" height="24"/></clipPath>
-    <clipPath id="cp8"><rect x="0" y="492" width="1100" height="24"/></clipPath>
-    <clipPath id="cp9"><rect x="0" y="566" width="1100" height="24"/></clipPath>
-    <clipPath id="cp10"><rect x="0" y="598" width="1100" height="24"/></clipPath>
-    <clipPath id="cp11"><rect x="0" y="630" width="1100" height="24"/></clipPath>
   </defs>
 
   <!-- outer border -->
-  <rect x="0.5" y="0.5" width="1099" height="739" rx="10" fill="transparent" stroke="#313244" style="fill:rgba(0, 0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="0.5" y="0.5" width="1099" height="739" rx="10" fill="transparent" stroke="#313244"/>
 
   <!-- topbar -->
-  <rect x="1" y="1" width="1098" height="43" rx="10" fill="rgba(24,24,37,0.55)" style="fill:rgba(24, 24, 37, 0.55);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <rect x="1" y="34" width="1098" height="10" fill="rgba(24,24,37,0.55)" style="fill:rgba(24, 24, 37, 0.55);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <line x1="1" y1="44" x2="1099" y2="44" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <circle cx="21" cy="22" r="5.5" fill="#f38ba8" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <circle cx="40" cy="22" r="5.5" fill="#f9e2af" style="fill:rgb(249, 226, 175);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <circle cx="59" cy="22" r="5.5" fill="#a6e3a1" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  <text x="550" y="27" text-anchor="middle" style="fill:rgb(69, 71, 90);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">[ catppuccin mocha — whoami — 128col ]</text>
+  <rect x="1" y="1" width="1098" height="43" rx="10" fill="rgba(24,24,37,0.55)"/>
+  <rect x="1" y="34" width="1098" height="10" fill="rgba(24,24,37,0.55)"/>
+  <line x1="1" y1="44" x2="1099" y2="44" class="line"/>
+  <circle cx="21" cy="22" r="5.5" fill="#f38ba8"/>
+  <circle cx="40" cy="22" r="5.5" fill="#f9e2af"/>
+  <circle cx="59" cy="22" r="5.5" fill="#a6e3a1"/>
+  <text x="550" y="27" text-anchor="middle" class="mono small faint">[ catppuccin mocha — whoami — 128col ]</text>
 
   <!-- scanline overlay -->
-  <rect x="0" y="0" width="1100" height="740" fill="url(#scanlines)" rx="10" pointer-events="none" style="stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="0" y="44" width="1100" height="696" fill="url(#scanlines)" pointer-events="none"/>
 
-  <!-- sweep light (starts after boot) -->
-  <rect x="0" y="0" width="1100" height="60" fill="url(#sweepgrad)" pointer-events="none" style="stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <animateTransform attributeName="transform" type="translate" from="0,-60" to="0,800" dur="5s" begin="7s" repeatCount="indefinite" style="stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  </rect>
+  <!-- sweep light -->
+  <rect class="sweep" x="0" y="-60" width="1100" height="60" fill="url(#sweepgrad)" pointer-events="none"/>
 
-  <!-- ══ BOOT SCREEN — dark overlay that fades out ══ -->
-  <rect id="bootbg" x="1" y="44" width="1098" height="695" fill="#080b0f" style="fill:rgb(8, 11, 15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <animate attributeName="opacity" from="1" to="0" begin="5.8s" dur="0.6s" fill="freeze" style="fill:rgb(8, 11, 15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  </rect>
-
-  <!-- boot lines — each fades in sequentially, then whole group fades out -->
-  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <animate attributeName="opacity" from="1" to="0" begin="5.8s" dur="0.6s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-
-    <text x="40" y="90" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[  OK  ] Started kernel event logging daemon.
-      <animate attributeName="opacity" from="0" to="1" begin="0.1s" dur="0.15s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="110" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[  OK  ] Reached target System Initialization.
-      <animate attributeName="opacity" from="0" to="1" begin="0.35s" dur="0.15s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="130" opacity="0" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[ INFO ] Loading catppuccin mocha colorscheme...
-      <animate attributeName="opacity" from="0" to="1" begin="0.6s" dur="0.15s" fill="freeze" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="150" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[  OK  ] Mounted /home/blessedrebus.
-      <animate attributeName="opacity" from="0" to="1" begin="0.85s" dur="0.15s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="170" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[  OK  ] Started zsh session manager.
-      <animate attributeName="opacity" from="0" to="1" begin="1.1s" dur="0.15s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="190" opacity="0" style="fill:rgb(249, 226, 175);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[ WARN ] hyprland compositor: 1 workspace restored.
-      <animate attributeName="opacity" from="0" to="1" begin="1.35s" dur="0.15s" fill="freeze" style="fill:rgb(249, 226, 175);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="210" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[  OK  ] Started kitty terminal emulator.
-      <animate attributeName="opacity" from="0" to="1" begin="1.6s" dur="0.15s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="230" opacity="0" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[ INFO ] Initializing whoami profile card...
-      <animate attributeName="opacity" from="0" to="1" begin="1.85s" dur="0.15s" fill="freeze" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="250" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[  OK  ] All systems operational.
-      <animate attributeName="opacity" from="0" to="1" begin="2.1s" dur="0.15s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-
-    <!-- loading dots line -->
-    <text x="40" y="278" opacity="0" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session
-      <animate attributeName="opacity" from="0" to="1" begin="2.4s" dur="0.2s" fill="freeze" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="278" opacity="0" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session .
-      <animate attributeName="opacity" from="0" to="1" begin="2.7s" dur="0.01s" fill="freeze" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="278" opacity="0" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session ..
-      <animate attributeName="opacity" from="0" to="1" begin="3.0s" dur="0.01s" fill="freeze" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="278" opacity="0" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session ...
-      <animate attributeName="opacity" from="0" to="1" begin="3.3s" dur="0.01s" fill="freeze" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="278" opacity="0" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session ....
-      <animate attributeName="opacity" from="0" to="1" begin="3.6s" dur="0.01s" fill="freeze" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="40" y="278" fill="#a6e3a1" opacity="0" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session ..... [DONE]
-      <animate attributeName="opacity" from="0" to="1" begin="4.0s" dur="0.2s" fill="freeze" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </text>
+  <!-- ══ BOOT SCREEN ══ -->
+  <rect class="bootbg" x="1" y="44" width="1098" height="695" fill="#080b0f"/>
+  <g class="boottext">
+    <text x="40" y="90" class="mono small ok    b0">[  OK  ] Started kernel event logging daemon.</text>
+    <text x="40" y="112" class="mono small ok    b1">[  OK  ] Reached target System Initialization.</text>
+    <text x="40" y="134" class="mono small info-c b2">[ INFO ] Loading catppuccin mocha colorscheme...</text>
+    <text x="40" y="156" class="mono small ok    b3">[  OK  ] Mounted /home/blessedrebus.</text>
+    <text x="40" y="178" class="mono small ok    b4">[  OK  ] Started zsh session manager.</text>
+    <text x="40" y="200" class="mono small warn  b5">[ WARN ] hyprland compositor: 1 workspace restored.</text>
+    <text x="40" y="222" class="mono small ok    b6">[  OK  ] Started kitty terminal emulator.</text>
+    <text x="40" y="244" class="mono small info-c b7">[ INFO ] Initializing whoami profile card...</text>
+    <text x="40" y="266" class="mono small ok    b8">[  OK  ] All systems operational.</text>
+    <text x="40" y="300" class="mono small purple b9">         Starting blessedrebus@arch session .......</text>
+    <text x="40" y="300" class="mono small ok    b10">         Starting blessedrebus@arch session ....... [ DONE ]</text>
   </g>
 
-  <!-- ══ MAIN CONTENT — appears after boot fades ══ -->
-
-  <!-- prompt -->
-  <g opacity="0" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <animate attributeName="opacity" from="0" to="1" begin="6.5s" dur="0.3s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    <text x="24" y="88" style="fill:rgb(69, 71, 90);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">❯</text>
-    <text x="46" y="88" style="fill:rgb(233, 146, 188);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.77725;font-family:&quot;Courier New&quot;, monospace;font-size:15px;font-weight:700;text-anchor:start;dominant-baseline:auto">blessedrebus@arch
-      <animate attributeName="x" values="46;49;43;46;46;46;46;46;46;49;44;46" dur="6s" repeatCount="indefinite" begin="12s" style="fill:rgb(233, 146, 188);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:15px;font-weight:700;text-anchor:start;dominant-baseline:auto"/>
-      <animate attributeName="fill" values="#cba6f7;#f38ba8;#89b4fa;#cba6f7;#cba6f7;#cba6f7;#cba6f7;#cba6f7;#cba6f7;#f38ba8;#cba6f7;#cba6f7" dur="6s" repeatCount="indefinite" begin="12s" style="fill:rgb(233, 146, 188);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:15px;font-weight:700;text-anchor:start;dominant-baseline:auto"/>
-      <animate attributeName="opacity" values="1;0.7;0.9;1;1;1;1;1;1;0.6;1;1" dur="6s" repeatCount="indefinite" begin="12s" style="fill:rgb(233, 146, 188);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:15px;font-weight:700;text-anchor:start;dominant-baseline:auto"/>
-    </text>
-    <text x="204" y="88" style="fill:rgb(69, 71, 90);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">~</text>
-    <text x="226" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <tspan style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"><animate attributeName="textLength" from="0" to="42" begin="6.7s" dur="0.6s" fill="freeze" calcMode="discrete" values="0;7;14;21;28;35;42" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto"/></tspan>whoami
-    </text>
+  <!-- ══ PROMPT ══ -->
+  <g class="prompt">
+    <text x="24" y="88" class="mono body faint">❯</text>
+    <text x="46" y="88" class="mono title uname">blessedrebus@arch</text>
+    <text x="204" y="88" class="mono body faint">~</text>
+    <text x="226" y="88" class="mono body muted">whoami</text>
+    <rect class="cursor" x="288" y="75" width="10" height="15" fill="#cba6f7"/>
   </g>
 
-  <!-- cursor -->
-  <rect x="226" y="75" width="10" height="15" fill="#cba6f7" opacity="0" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.633333;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <animate attributeName="opacity" values="0;0;1;1;0;0;1" dur="0.9s" repeatCount="indefinite" begin="6.5s" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    <animate attributeName="x" from="226" to="288" begin="6.7s" dur="0.6s" fill="freeze" calcMode="discrete" values="226;233;240;247;254;261;288" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-  </rect>
+  <!-- ══ SYSTEM ══ -->
+  <text x="24" y="128" class="mono small muted sh-system">system</text>
+  <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system"/>
 
-  <!-- ══ SECTION: system ══ -->
-  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <g opacity="0" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="7.4s" dur="0.3s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="128" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">system</text>
-    </g>
-    <line x1="90" y1="124" x2="90" y2="124" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="x2" from="90" to="1076" begin="7.5s" dur="0.4s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </line>
-    <g opacity="0" clip-path="url(#cp0)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="7.95s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="164" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">os</text>
-      <text x="140" y="164" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="988" y="152" width="88" height="22" rx="11" fill="rgba(137,180,250,0.15)" style="fill:rgba(137, 180, 250, 0.15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1032" y="167" text-anchor="middle" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Arch Linux</text>
-    </g>
-    <g opacity="0" clip-path="url(#cp1)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="8.1s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="196" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">uptime</text>
-      <text x="140" y="196" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="986" y="184" width="90" height="22" rx="11" fill="rgba(249,226,175,0.12)" style="fill:rgba(249, 226, 175, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1031" y="199" text-anchor="middle" style="fill:rgb(249, 226, 175);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">since birth</text>
-    </g>
-    <g opacity="0" clip-path="url(#cp2)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="8.25s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="228" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">shell</text>
-      <text x="140" y="228" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="1024" y="216" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)" style="fill:rgba(137, 180, 250, 0.15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1050" y="231" text-anchor="middle" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">zsh</text>
-    </g>
-    <g opacity="0" clip-path="url(#cp3)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="8.4s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="260" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">editor</text>
-      <text x="140" y="260" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="1024" y="248" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)" style="fill:rgba(137, 180, 250, 0.15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1050" y="263" text-anchor="middle" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">vim</text>
-    </g>
-    <g opacity="0" clip-path="url(#cp4)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="8.55s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="292" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">wm</text>
-      <text x="140" y="292" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="1000" y="280" width="76" height="22" rx="11" fill="rgba(137,180,250,0.15)" style="fill:rgba(137, 180, 250, 0.15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1038" y="295" text-anchor="middle" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">hyprland</text>
-    </g>
-    <g opacity="0" clip-path="url(#cp5)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="8.7s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="324" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">terminal</text>
-      <text x="140" y="324" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="1024" y="312" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)" style="fill:rgba(137, 180, 250, 0.15);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1050" y="327" text-anchor="middle" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">kitty</text>
-    </g>
+  <g class="r0">
+    <text x="24" y="164" class="mono body blue">os</text>
+    <text x="140" y="164" class="mono small" fill="#1e2535">..............</text>
+    <rect x="988" y="152" width="88" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
+    <text x="1032" y="167" text-anchor="middle" class="mono small blue">Arch Linux</text>
+  </g>
+  <g class="r1">
+    <text x="24" y="196" class="mono body blue">uptime</text>
+    <text x="140" y="196" class="mono small" fill="#1e2535">..............</text>
+    <rect x="986" y="184" width="90" height="22" rx="11" fill="rgba(249,226,175,0.12)"/>
+    <text x="1031" y="199" text-anchor="middle" class="mono small yellow">since birth</text>
+  </g>
+  <g class="r2">
+    <text x="24" y="228" class="mono body blue">shell</text>
+    <text x="140" y="228" class="mono small" fill="#1e2535">..............</text>
+    <rect x="1024" y="216" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
+    <text x="1050" y="231" text-anchor="middle" class="mono small blue">zsh</text>
+  </g>
+  <g class="r3">
+    <text x="24" y="260" class="mono body blue">editor</text>
+    <text x="140" y="260" class="mono small" fill="#1e2535">..............</text>
+    <rect x="1024" y="248" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
+    <text x="1050" y="263" text-anchor="middle" class="mono small blue">vim</text>
+  </g>
+  <g class="r4">
+    <text x="24" y="292" class="mono body blue">wm</text>
+    <text x="140" y="292" class="mono small" fill="#1e2535">..............</text>
+    <rect x="1000" y="280" width="76" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
+    <text x="1038" y="295" text-anchor="middle" class="mono small blue">hyprland</text>
+  </g>
+  <g class="r5">
+    <text x="24" y="324" class="mono body blue">terminal</text>
+    <text x="140" y="324" class="mono small" fill="#1e2535">..............</text>
+    <rect x="1024" y="312" width="52" height="22" rx="11" fill="rgba(137,180,250,0.15)"/>
+    <text x="1050" y="327" text-anchor="middle" class="mono small blue">kitty</text>
   </g>
 
-  <!-- ══ SECTION: focus ══ -->
-  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <g opacity="0" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="8.95s" dur="0.3s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="366" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">focus</text>
-    </g>
-    <line x1="76" y1="362" x2="76" y2="362" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="x2" from="76" to="1076" begin="9.05s" dur="0.4s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </line>
-    <g opacity="0" clip-path="url(#cp6)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="9.5s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="398" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">offsec</text>
-      <text x="140" y="398" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="880" y="386" width="98" height="22" rx="11" fill="rgba(203,166,247,0.12)" style="fill:rgba(203, 166, 247, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="929" y="401" text-anchor="middle" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">ethical hacking</text>
-      <rect x="984" y="386" width="92" height="22" rx="11" fill="rgba(203,166,247,0.12)" style="fill:rgba(203, 166, 247, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1030" y="401" text-anchor="middle" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">red teaming</text>
-    </g>
-    <g opacity="0" clip-path="url(#cp7)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="9.65s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="430" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">infra</text>
-      <text x="140" y="430" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="810" y="418" width="82" height="22" rx="11" fill="rgba(203,166,247,0.12)" style="fill:rgba(203, 166, 247, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="851" y="433" text-anchor="middle" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Kubernetes</text>
-      <rect x="898" y="418" width="62" height="22" rx="11" fill="rgba(203,166,247,0.12)" style="fill:rgba(203, 166, 247, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="929" y="433" text-anchor="middle" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Proxmox</text>
-      <rect x="966" y="418" width="44" height="22" rx="11" fill="rgba(203,166,247,0.12)" style="fill:rgba(203, 166, 247, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="988" y="433" text-anchor="middle" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">AWS</text>
-      <rect x="1016" y="418" width="60" height="22" rx="11" fill="rgba(203,166,247,0.12)" style="fill:rgba(203, 166, 247, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1046" y="433" text-anchor="middle" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Azure</text>
-    </g>
+  <!-- ══ FOCUS ══ -->
+  <text x="24" y="366" class="mono small muted sh-focus">focus</text>
+  <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus"/>
+
+  <g class="r6">
+    <text x="24" y="398" class="mono body purple">offsec</text>
+    <text x="140" y="398" class="mono small" fill="#1e2535">..............</text>
+    <rect x="880" y="386" width="98" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="929" y="401" text-anchor="middle" class="mono small purple">ethical hacking</text>
+    <rect x="984" y="386" width="92" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="1030" y="401" text-anchor="middle" class="mono small purple">red teaming</text>
+  </g>
+  <g class="r7">
+    <text x="24" y="430" class="mono body purple">infra</text>
+    <text x="140" y="430" class="mono small" fill="#1e2535">..............</text>
+    <rect x="810" y="418" width="82" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="851" y="433" text-anchor="middle" class="mono small purple">Kubernetes</text>
+    <rect x="898" y="418" width="62" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="929" y="433" text-anchor="middle" class="mono small purple">Proxmox</text>
+    <rect x="966" y="418" width="44" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="988" y="433" text-anchor="middle" class="mono small purple">AWS</text>
+    <rect x="1016" y="418" width="60" height="22" rx="11" fill="rgba(203,166,247,0.12)"/>
+    <text x="1046" y="433" text-anchor="middle" class="mono small purple">Azure</text>
   </g>
 
-  <!-- ══ SECTION: other ══ -->
-  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <g opacity="0" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="9.9s" dur="0.3s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="474" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">other</text>
-    </g>
-    <line x1="76" y1="470" x2="76" y2="470" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="x2" from="76" to="1076" begin="10s" dur="0.4s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </line>
-    <g opacity="0" clip-path="url(#cp8)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="10.45s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="506" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">certs</text>
-      <text x="140" y="506" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <rect x="638" y="494" width="48" height="22" rx="11" fill="rgba(243,139,168,0.12)" style="fill:rgba(243, 139, 168, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="662" y="509" text-anchor="middle" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">OSCP</text>
-      <rect x="692" y="494" width="92" height="22" rx="11" fill="rgba(243,139,168,0.12)" style="fill:rgba(243, 139, 168, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="738" y="509" text-anchor="middle" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Kubestronaut</text>
-      <rect x="790" y="494" width="148" height="22" rx="11" fill="rgba(243,139,168,0.12)" style="fill:rgba(243, 139, 168, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="864" y="509" text-anchor="middle" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">AWS Security Specialist</text>
-      <rect x="944" y="494" width="76" height="22" rx="11" fill="rgba(243,139,168,0.12)" style="fill:rgba(243, 139, 168, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="982" y="509" text-anchor="middle" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Terraform</text>
-      <rect x="1026" y="494" width="50" height="22" rx="11" fill="rgba(243,139,168,0.12)" style="fill:rgba(243, 139, 168, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="1051" y="509" text-anchor="middle" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Cisco</text>
-    </g>
+  <!-- ══ OTHER ══ -->
+  <text x="24" y="474" class="mono small muted sh-other">other</text>
+  <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other"/>
+
+  <g class="r8">
+    <text x="24" y="506" class="mono body pink">certs</text>
+    <text x="140" y="506" class="mono small" fill="#1e2535">..............</text>
+    <rect x="638" y="494" width="48" height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
+    <text x="662" y="509" text-anchor="middle" class="mono small pink">OSCP</text>
+    <rect x="692" y="494" width="92" height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
+    <text x="738" y="509" text-anchor="middle" class="mono small pink">Kubestronaut</text>
+    <rect x="790" y="494" width="148" height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
+    <text x="864" y="509" text-anchor="middle" class="mono small pink">AWS Security Specialist</text>
+    <rect x="944" y="494" width="76" height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
+    <text x="982" y="509" text-anchor="middle" class="mono small pink">Terraform</text>
+    <rect x="1026" y="494" width="50" height="22" rx="11" fill="rgba(243,139,168,0.12)"/>
+    <text x="1051" y="509" text-anchor="middle" class="mono small pink">Cisco</text>
   </g>
 
-  <!-- ══ SECTION: projects ══ -->
-  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-    <g opacity="0" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="10.7s" dur="0.3s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="548" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">projects</text>
-    </g>
-    <line x1="90" y1="544" x2="90" y2="544" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="x2" from="90" to="1076" begin="10.8s" dur="0.4s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-    </line>
-    <g opacity="0" clip-path="url(#cp9)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="11.25s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="580" style="fill:rgb(148, 226, 213);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Krawl Honeypot</text>
-      <text x="140" y="580" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-        <rect x="902" y="568" width="174" height="22" rx="11" fill="rgba(137,220,235,0.12)" style="fill:rgba(137, 220, 235, 0.12);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-        <text x="989" y="583" text-anchor="middle" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">BlessedRebuS/Krawl</text>
-      </a>
-    </g>
-    <g opacity="0" clip-path="url(#cp10)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="11.4s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="612" style="fill:rgb(148, 226, 213);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Kentra Framework</text>
-      <text x="140" y="612" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-        <rect x="894" y="600" width="182" height="22" rx="11" fill="rgba(137,220,235,0.12)" style="fill:rgba(137, 220, 235, 0.12);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-        <text x="985" y="615" text-anchor="middle" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">BlessedRebuS/Kentra</text>
-      </a>
-    </g>
-    <g opacity="0" clip-path="url(#cp11)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-      <animate attributeName="opacity" from="0" to="1" begin="11.55s" dur="0.2s" fill="freeze" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-      <text x="24" y="644" style="fill:rgb(148, 226, 213);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">OSCP Cheatsheet</text>
-      <text x="140" y="644" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">..............</text>
-      <a xlink:href="https://github.com/BlessedRebuS/OSCP-Pentesting-Cheatsheet" href="https://github.com/BlessedRebuS/OSCP-Pentesting-Cheatsheet" target="_blank" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-        <rect x="734" y="632" width="342" height="22" rx="11" fill="rgba(137,220,235,0.12)" style="fill:rgba(137, 220, 235, 0.12);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-        <text x="905" y="647" text-anchor="middle" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">BlessedRebuS/OSCP-Pentesting-Cheatsheet</text>
-      </a>
-    </g>
+  <!-- ══ PROJECTS ══ -->
+  <text x="24" y="548" class="mono small muted sh-projects">projects</text>
+  <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects"/>
+
+  <g class="r9">
+    <text x="24" y="580" class="mono body teal">Krawl Honeypot</text>
+    <text x="140" y="580" class="mono small" fill="#1e2535">..............</text>
+    <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank">
+      <rect x="902" y="568" width="174" height="22" rx="11" fill="rgba(137,220,235,0.12)"/>
+      <text x="989" y="583" text-anchor="middle" class="mono small cyan">BlessedRebuS/Krawl</text>
+    </a>
+  </g>
+  <g class="r10">
+    <text x="24" y="612" class="mono body teal">Kentra Framework</text>
+    <text x="140" y="612" class="mono small" fill="#1e2535">..............</text>
+    <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank">
+      <rect x="894" y="600" width="182" height="22" rx="11" fill="rgba(137,220,235,0.12)"/>
+      <text x="985" y="615" text-anchor="middle" class="mono small cyan">BlessedRebuS/Kentra</text>
+    </a>
+  </g>
+  <g class="r11">
+    <text x="24" y="644" class="mono body teal">OSCP Cheatsheet</text>
+    <text x="140" y="644" class="mono small" fill="#1e2535">..............</text>
+    <a xlink:href="https://github.com/BlessedRebuS/OSCP-Pentesting-Cheatsheet" href="https://github.com/BlessedRebuS/OSCP-Pentesting-Cheatsheet" target="_blank">
+      <rect x="734" y="632" width="342" height="22" rx="11" fill="rgba(137,220,235,0.12)"/>
+      <text x="905" y="647" text-anchor="middle" class="mono small cyan">BlessedRebuS/OSCP-Pentesting-Cheatsheet</text>
+    </a>
   </g>
 </svg>
