@@ -26,8 +26,7 @@
 
 <img height="150px" src="https://github-readme-stats.vercel.app/api?username=blessedrebus&hide_border=true&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=8b949e" />
 <img height="150px" src="https://github-readme-streak-stats.herokuapp.com/?user=blessedrebus&hide_border=true&theme=tokyonight&background=0d1117&ring=58a6ff&fire=1f6feb&currStreakLabel=58a6ff" />
-
-<img height="130px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=blessedrebus&hide=html&hide_border=true&layout=compact&langs_count=8&theme=tokyonight&bg_color=0d1117&title_color=58a6ff&text_color=8b949e" />
+<img height="150px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=blessedrebus&hide=html&hide_border=true&layout=compact&langs_count=8&theme=tokyonight&bg_color=0d1117&title_color=58a6ff&text_color=8b949e" />
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/patrick-di-fazio-9a0b72145)
 ![Profile views](https://komarev.com/ghpvc/?username=blessedrebus&style=flat-square&color=185FA5&label=Views)
