@@ -2,6 +2,8 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:185FA5,100:0F6E56&height=120&section=header&text=Patrick+Di+Fazio&fontSize=32&fontColor=ffffff&fontAlignY=65&desc=Cloud+Security+%C2%B7+Infrastructure+%C2%B7+DevOps&descAlignY=85&descSize=14" width="100%" />
 
+<img src="https://github.com/BlessedRebuS/BlessedRebuS/blob/beta/img/blessedrebus_svg_animated.svg" />
+
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/patrick-di-fazio-9a0b72145)
 [![GitHub followers](https://img.shields.io/github/followers/blessedrebus?style=flat-square&label=Followers&color=185FA5)](https://github.com/blessedrebus?tab=followers)
 ![Profile views](https://komarev.com/ghpvc/?username=blessedrebus&style=flat-square&color=185FA5&label=Views)
