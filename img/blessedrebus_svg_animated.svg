@@ -21,29 +21,24 @@
       .line { stroke: #313244; stroke-width: 1; fill: none; }
       a { text-decoration: none; }
 
-      /* cursor blink */
       @keyframes blink {
         0%, 49% { opacity: 1; }
         50%, 100% { opacity: 0; }
       }
       .cursor { animation: blink 0.9s step-end infinite; animation-delay: 7.4s; opacity: 0; }
 
-      /* fade in */
       @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
-      /* slide in from left */
       @keyframes slidein {
         from { opacity: 0; transform: translateX(-12px); }
         to   { opacity: 1; transform: translateX(0); }
       }
 
-      /* divider line draw */
       @keyframes drawline {
         from { stroke-dashoffset: 1100; }
         to   { stroke-dashoffset: 0; }
       }
 
-      /* intro glitch */
       @keyframes introglitch {
         0%   { opacity: 0; transform: translate(0,0); }
         5%   { opacity: 0.95; transform: translate(-2px,1px); }
@@ -70,23 +65,10 @@
         100% { opacity: 0; transform: translateY(0); }
       }
 
-      .glitch-layer-1 {
-        opacity: 0;
-        animation: introglitch 5s steps(2, end) forwards;
-      }
+      .glitch-layer-1 { opacity:0; animation: introglitch 5s steps(2,end) forwards; }
+      .glitch-layer-2 { opacity:0; animation: introglitch 3s steps(2,end) forwards; animation-delay:1s; }
+      .glitch-scan    { opacity:0; animation: glitchbar 5s steps(2,end) forwards; }
 
-      .glitch-layer-2 {
-        opacity: 0;
-        animation: introglitch 3s steps(2, end) forwards;
-        animation-delay: 1s;
-      }
-
-      .glitch-scan {
-        opacity: 0;
-        animation: glitchbar 5s steps(2, end) forwards;
-      }
-
-      /* typewriter chars */
       .tw-w { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.55s; }
       .tw-h { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.67s; }
       .tw-o { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.79s; }
@@ -94,7 +76,6 @@
       .tw-m { opacity:0; animation: fadein 0.05s forwards; animation-delay: 7.03s; }
       .tw-i { opacity:0; animation: fadein 0.05s forwards; animation-delay: 7.15s; }
 
-      /* ASCII spinner */
       @keyframes sp0 { 0%,24%{opacity:1} 25%,100%{opacity:0} }
       @keyframes sp1 { 25%,49%{opacity:1} 0%,24%,50%,100%{opacity:0} }
       @keyframes sp2 { 50%,74%{opacity:1} 0%,49%,75%,100%{opacity:0} }
@@ -109,7 +90,6 @@
       .spinner-grp     { opacity:0; animation: fadein 0.1s forwards; animation-delay: 2.4s; }
       .spinner-grp-out { animation: spinnerout 0.3s forwards; animation-delay: 4.9s; }
 
-      /* boot lines */
       .b0  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.1s; }
       .b1  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.32s; }
       .b2  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.54s; }
@@ -122,11 +102,9 @@
       .b9  { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 2.3s; }
       .b10 { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 5.0s; }
 
-      /* boot overlay */
       @keyframes bootout { 0%{opacity:1} 100%{opacity:0} }
       .boottext { animation: bootout 0.5s forwards; animation-delay: 5.6s; }
 
-      /* prompt + content */
       .prompt-static { opacity:0; animation: fadein 0.3s forwards; animation-delay: 6.3s; }
 
       .sh-system   { opacity:0; animation: fadein 0.3s forwards; animation-delay: 7.5s; }
@@ -160,50 +138,46 @@
   <rect x="1" y="1" width="1098" height="43" rx="10" fill="#161b22"/>
   <rect x="1" y="34" width="1098" height="10" fill="#161b22"/>
   <line x1="1" y1="44" x2="1099" y2="44" stroke="#30363d" stroke-width="1"/>
-
   <circle cx="21" cy="22" r="5.5" fill="#f85149"/>
   <circle cx="40" cy="22" r="5.5" fill="#d29922"/>
   <circle cx="59" cy="22" r="5.5" fill="#3fb950"/>
-
   <text x="550" y="27" text-anchor="middle" class="mono small" fill="#8b949e">blessedrebus / whoami</text>
 
   <!-- INTRO GLITCH -->
   <g>
     <g class="glitch-layer-1">
-      <text x="39" y="90" class="mono small" fill="#f5c2e7">[  OK  ] Started kernel event logging daemon.</text>
-      <text x="39" y="112" class="mono small" fill="#f5c2e7">[  OK  ] Reached target System Initialization.</text>
-      <text x="39" y="134" class="mono small" fill="#cba6f7">[ INFO ] Loading catppuccin mocha colorscheme...</text>
-      <text x="39" y="156" class="mono small" fill="#f5c2e7">[  OK  ] Mounted /home/blessedrebus.</text>
-      <text x="39" y="178" class="mono small" fill="#f5c2e7">[  OK  ] Started zsh session manager.</text>
+      <text x="39" y="90"  class="mono small" fill="#f5c2e7">Linux 6.8.1-arch1-1 (tty1)</text>
+      <text x="39" y="112" class="mono small" fill="#f5c2e7">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</text>
+      <text x="39" y="134" class="mono small" fill="#cba6f7">[    0.000000] ACPI: IRQ0 used by override.</text>
+      <text x="39" y="156" class="mono small" fill="#f5c2e7">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
+      <text x="39" y="178" class="mono small" fill="#f5c2e7">[    0.893021] NET: Registered PF_INET6 protocol family</text>
     </g>
-
     <g class="glitch-layer-2">
-      <text x="41" y="89" class="mono small" fill="#89dceb">[  OK  ] Started kernel event logging daemon.</text>
-      <text x="41" y="111" class="mono small" fill="#89dceb">[  OK  ] Reached target System Initialization.</text>
-      <text x="41" y="133" class="mono small" fill="#89b4fa">[ INFO ] Loading catppuccin mocha colorscheme...</text>
-      <text x="41" y="155" class="mono small" fill="#89dceb">[  OK  ] Mounted /home/blessedrebus.</text>
-      <text x="41" y="177" class="mono small" fill="#89dceb">[  OK  ] Started zsh session manager.</text>
+      <text x="41" y="89"  class="mono small" fill="#89dceb">Linux 6.8.1-arch1-1 (tty1)</text>
+      <text x="41" y="111" class="mono small" fill="#89dceb">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</text>
+      <text x="41" y="133" class="mono small" fill="#89b4fa">[    0.000000] ACPI: IRQ0 used by override.</text>
+      <text x="41" y="155" class="mono small" fill="#89dceb">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
+      <text x="41" y="177" class="mono small" fill="#89dceb">[    0.893021] NET: Registered PF_INET6 protocol family</text>
     </g>
-
     <g class="glitch-scan">
-      <rect x="24" y="82" width="760" height="10" fill="rgba(203,166,247,0.10)"/>
-      <rect x="32" y="128" width="690" height="7" fill="rgba(137,180,250,0.12)"/>
-      <rect x="20" y="170" width="820" height="8" fill="rgba(243,139,168,0.10)"/>
-      <rect x="0" y="212" width="1100" height="2" fill="rgba(255,255,255,0.04)"/>
+      <rect x="24" y="82"  width="760" height="10" fill="rgba(203,166,247,0.10)"/>
+      <rect x="32" y="128" width="690" height="7"  fill="rgba(137,180,250,0.12)"/>
+      <rect x="20" y="170" width="820" height="8"  fill="rgba(243,139,168,0.10)"/>
+      <rect x="0"  y="212" width="1100" height="2" fill="rgba(255,255,255,0.04)"/>
     </g>
   </g>
 
-  <!-- BOOT -->
+  <!-- BOOT — kernel sequence -->
   <g class="boottext">
-    <text x="40" y="90"  class="mono small ok     b0">[  OK  ] Started kernel event logging daemon.</text>
-    <text x="40" y="112" class="mono small ok     b1">[  OK  ] Reached target System Initialization.</text>
-    <text x="40" y="134" class="mono small info-c b2">[ INFO ] Loading catppuccin mocha colorscheme...</text>
-    <text x="40" y="156" class="mono small ok     b3">[  OK  ] Mounted /home/blessedrebus.</text>
-    <text x="40" y="178" class="mono small ok     b4">[  OK  ] Started zsh session manager.</text>
-    <text x="40" y="200" class="mono small warn   b5">[ WARN ] hyprland compositor: 1 workspace restored.</text>
-    <text x="40" y="222" class="mono small ok     b6">[  OK  ] Started kitty terminal emulator.</text>
-    <text x="40" y="244" class="mono small info-c b7">[ INFO ] Initializing whoami profile card...</text>
-    <text x="40" y="266" class="mono small ok     b8">[  OK  ] All systems operational.</text>
+    <text x="40" y="90"  class="mono small white  b0">Linux 6.8.1-arch1-1 (tty1)</text>
+    <text x="40" y="112" class="mono small muted  b1">[    0.000000] Booting Linux on physical CPU 0x0</text>
+    <text x="40" y="134" class="mono small muted  b2">[    0.000000] ACPI: RSDP 0x00000000000F0490 000024 (v02 BOCHS)</text>
+    <text x="40" y="156" class="mono small ok     b3">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
+    <text x="40" y="178" class="mono small ok     b4">[    0.893021] NET: Registered PF_INET6 protocol family</text>
+    <text x="40" y="200" class="mono small info-c b5">[    1.204871] systemd[1]: systemd 255 running in system mode</text>
+    <text x="40" y="222" class="mono small ok     b6">[    1.388204] systemd[1]: Reached target Basic System.</text>
+    <text x="40" y="244" class="mono small warn   b7">[    1.512093] systemd-udevd[312]: kernel: /dev/sda: unsupported sector size 4096</text>
+    <text x="40" y="266" class="mono small ok     b8">[    2.001337] systemd[1]: Started Network Manager.</text>
     <text x="40" y="300" class="mono small purple b9">         Starting blessedrebus@arch session</text>
 
     <g class="spinner-grp spinner-grp-out">
@@ -230,7 +204,7 @@
   <text x="247" y="88" class="mono body muted tw-a">a</text>
   <text x="254" y="88" class="mono body muted tw-m">m</text>
   <text x="261" y="88" class="mono body muted tw-i">i</text>
-  <rect class="cursor" x="270" y="75" width="9" height="14" fill="#cba6f7"/>
+  <rect class="cursor" x="274" y="75" width="9" height="14" fill="#cdd6f4"/>
 
   <!-- SYSTEM -->
   <text x="24" y="128" class="mono small muted sh-system">System</text>
@@ -272,8 +246,9 @@
   <g class="r6">
     <text x="24" y="398" class="mono body pink">Security</text>
     <text x="145" y="398" class="mono small" fill="#1e2535">........................................................................................................</text>
-    <text x="917"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
-    <text x="1029" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
+    <text x="900"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
+    <text x="965"  y="401" text-anchor="middle" class="mono small muted">/</text>
+    <text x="1035" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
   </g>
   <g class="r7">
     <text x="24" y="430" class="mono body peach">Infrastructure</text>
