@@ -1,301 +1,161 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="680" viewBox="0 0 1100 680" role="img" aria-label="blessedrebus terminal profile card">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1100" height="689.5" viewBox="0 0 1110 689.5" role="img" aria-label="blessedrebus terminal profile card" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">blessedrebus terminal profile card</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Animated terminal-style profile card for blessedrebus showing system info, focus areas, certifications and projects</desc>
   <defs>
-    <style>
-      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
-      .small { font-size: 10px; }
-      .body { font-size: 12px; }
-      .title { font-size: 15px; font-weight: bold; }
-      .muted { fill: #6c7086; }
-      .faint { fill: #45475a; }
-      .blue { fill: #89b4fa; }
-      .purple { fill: #cba6f7; }
-      .white { fill: #cdd6f4; }
-      .pink { fill: #f38ba8; }
-      .cyan { fill: #89dceb; }
-      .teal { fill: #94e2d5; }
-      .yellow { fill: #f9e2af; }
-      .peach { fill: #fab387; }
-      .ok { fill: #a6e3a1; }
-      .info-c { fill: #89b4fa; }
-      .warn { fill: #f9e2af; }
-      .line { stroke: #313244; stroke-width: 1; fill: none; }
-      a { text-decoration: none; }
-
-      @keyframes blink {
-        0%, 49% { opacity: 1; }
-        50%, 100% { opacity: 0; }
-      }
-      .cursor { animation: blink 0.9s step-end infinite; animation-delay: 7.4s; opacity: 0; }
-
-      @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-
-      @keyframes slidein {
-        from { opacity: 0; transform: translateX(-12px); }
-        to   { opacity: 1; transform: translateX(0); }
-      }
-
-      @keyframes drawline {
-        from { stroke-dashoffset: 1100; }
-        to   { stroke-dashoffset: 0; }
-      }
-
-      @keyframes introglitch {
-        0%   { opacity: 0; transform: translate(0,0); }
-        5%   { opacity: 0.95; transform: translate(-2px,1px); }
-        10%  { opacity: 0.35; transform: translate(2px,-1px); }
-        15%  { opacity: 0.9; transform: translate(-1px,-1px); }
-        20%  { opacity: 0.25; transform: translate(3px,1px); }
-        25%  { opacity: 0.85; transform: translate(-3px,0); }
-        30%  { opacity: 0.2; transform: translate(2px,2px); }
-        35%  { opacity: 0.75; transform: translate(-2px,-2px); }
-        40%  { opacity: 0.15; transform: translate(1px,0); }
-        45%  { opacity: 0.65; transform: translate(-1px,1px); }
-        50%  { opacity: 0.08; transform: translate(0,0); }
-        100% { opacity: 0; transform: translate(0,0); }
-      }
-
-      @keyframes glitchbar {
-        0%   { opacity: 0; transform: translateY(0); }
-        8%   { opacity: 0.8; transform: translateY(-2px); }
-        16%  { opacity: 0.15; transform: translateY(1px); }
-        24%  { opacity: 0.7; transform: translateY(-1px); }
-        32%  { opacity: 0.12; transform: translateY(2px); }
-        40%  { opacity: 0.6; transform: translateY(-3px); }
-        48%  { opacity: 0.08; transform: translateY(0); }
-        100% { opacity: 0; transform: translateY(0); }
-      }
-
-      .glitch-layer-1 { opacity:0; animation: introglitch 5s steps(2,end) forwards; }
-      .glitch-layer-2 { opacity:0; animation: introglitch 3s steps(2,end) forwards; animation-delay:1s; }
-      .glitch-scan    { opacity:0; animation: glitchbar 5s steps(2,end) forwards; }
-
-      .tw-w { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.55s; }
-      .tw-h { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.67s; }
-      .tw-o { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.79s; }
-      .tw-a { opacity:0; animation: fadein 0.05s forwards; animation-delay: 6.91s; }
-      .tw-m { opacity:0; animation: fadein 0.05s forwards; animation-delay: 7.03s; }
-      .tw-i { opacity:0; animation: fadein 0.05s forwards; animation-delay: 7.15s; }
-
-      @keyframes sp0 { 0%,24%{opacity:1} 25%,100%{opacity:0} }
-      @keyframes sp1 { 25%,49%{opacity:1} 0%,24%,50%,100%{opacity:0} }
-      @keyframes sp2 { 50%,74%{opacity:1} 0%,49%,75%,100%{opacity:0} }
-      @keyframes sp3 { 75%,100%{opacity:1} 0%,74%{opacity:0} }
-
-      .spin0 { opacity:1; animation: sp0 0.5s step-end infinite; animation-delay: 2.5s; }
-      .spin1 { opacity:0; animation: sp1 0.5s step-end infinite; animation-delay: 2.5s; }
-      .spin2 { opacity:0; animation: sp2 0.5s step-end infinite; animation-delay: 2.5s; }
-      .spin3 { opacity:0; animation: sp3 0.5s step-end infinite; animation-delay: 2.5s; }
-
-      @keyframes spinnerout { 0%{opacity:1} 100%{opacity:0} }
-      .spinner-grp     { opacity:0; animation: fadein 0.1s forwards; animation-delay: 2.4s; }
-      .spinner-grp-out { animation: spinnerout 0.3s forwards; animation-delay: 4.9s; }
-
-      .b0  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.1s; }
-      .b1  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.32s; }
-      .b2  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.54s; }
-      .b3  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.76s; }
-      .b4  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.98s; }
-      .b5  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.2s; }
-      .b6  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.42s; }
-      .b7  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.64s; }
-      .b8  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 1.86s; }
-      .b9  { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 2.3s; }
-      .b10 { opacity:0; animation: fadein 0.2s  forwards; animation-delay: 5.0s; }
-
-      @keyframes bootout { 0%{opacity:1} 100%{opacity:0} }
-      .boottext { animation: bootout 0.5s forwards; animation-delay: 5.6s; }
-
-      .prompt-static { opacity:0; animation: fadein 0.3s forwards; animation-delay: 6.3s; }
-
-      .sh-system   { opacity:0; animation: fadein 0.3s forwards; animation-delay: 7.5s; }
-      .sh-focus    { opacity:0; animation: fadein 0.3s forwards; animation-delay: 9.1s; }
-      .sh-other    { opacity:0; animation: fadein 0.3s forwards; animation-delay: 10.0s; }
-      .sh-projects { opacity:0; animation: fadein 0.3s forwards; animation-delay: 10.9s; }
-
-      .dl-system   { stroke-dasharray:1100; stroke-dashoffset:1100; animation: drawline 0.4s forwards; animation-delay: 7.6s; }
-      .dl-focus    { stroke-dasharray:1100; stroke-dashoffset:1100; animation: drawline 0.4s forwards; animation-delay: 9.2s; }
-      .dl-other    { stroke-dasharray:1100; stroke-dashoffset:1100; animation: drawline 0.4s forwards; animation-delay: 10.1s; }
-      .dl-projects { stroke-dasharray:1100; stroke-dashoffset:1100; animation: drawline 0.4s forwards; animation-delay: 11.0s; }
-
-      .r0  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.05s; }
-      .r1  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.2s; }
-      .r2  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.35s; }
-      .r3  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.5s; }
-      .r4  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.65s; }
-      .r5  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 8.8s; }
-      .r6  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 9.65s; }
-      .r7  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 9.8s; }
-      .r8  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 10.6s; }
-      .r9  { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.4s; }
-      .r10 { opacity:0; animation: slidein 0.2s forwards; animation-delay: 11.55s; }
-    </style>
-  </defs>
+    
+  <mask id="imagine-text-gaps-d07s03" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="1110" height="689.5" fill="white"/><rect x="481.5022888183594" y="15.413637161254883" width="136.99545288085938" height="16.142727851867676" fill="black" rx="2"/><rect x="33.72181701660156" y="78.41363525390625" width="167.10000610351562" height="16.142727851867676" fill="black" rx="2"/><rect x="33.72181701660156" y="100.41363525390625" width="450.0827331542969" height="16.142727851867676" fill="black" rx="2"/><rect x="33.72181701660156" y="122.41363525390625" width="251.39271545410156" height="16.142727851867676" fill="black" rx="2"/><rect x="33.72181701660156" y="144.41363525390625" width="395.89453125" height="16.142727851867676" fill="black" rx="2"/><rect x="33.72181701660156" y="166.41363525390625" width="323.64361572265625" height="16.142727851867676" fill="black" rx="2"/><rect x="35.72181701660156" y="77.41363525390625" width="167.10000610351562" height="16.142727851867676" fill="black" rx="2"/><rect x="35.72181701660156" y="99.41363525390625" width="450.0827331542969" height="16.142727851867676" fill="black" rx="2"/><rect x="35.72181701660156" y="121.41363525390625" width="251.39271545410156" height="16.142727851867676" fill="black" rx="2"/><rect x="35.72181701660156" y="143.41363525390625" width="395.89453125" height="16.142727851867676" fill="black" rx="2"/><rect x="35.72181701660156" y="165.41363525390625" width="323.64361572265625" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="78.41363525390625" width="167.10000610351562" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="100.41363525390625" width="281.49725341796875" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="122.41363525390625" width="371.8109130859375" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="144.41363525390625" width="395.89453125" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="166.41363525390625" width="323.64361572265625" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="188.41363525390625" width="359.76910400390625" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="210.41363525390625" width="323.64361572265625" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="232.41363525390625" width="480.187255859375" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="254.41363525390625" width="299.55999755859375" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="288.41363525390625" width="215.26727294921875" height="16.142727851867676" fill="black" rx="2"/><rect x="256.7218322753906" y="288.41363525390625" width="16.577272415161133" height="16.142727851867676" fill="black" rx="2"/><rect x="256.7218322753906" y="288.41363525390625" width="16.577272415161133" height="16.142727851867676" fill="black" rx="2"/><rect x="256.7218322753906" y="288.41363525390625" width="16.577272415161133" height="16.142727851867676" fill="black" rx="2"/><rect x="256.7218322753906" y="288.41363525390625" width="16.577272415161133" height="16.142727851867676" fill="black" rx="2"/><rect x="34.72181701660156" y="288.41363525390625" width="269.4554443359375" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="40.72181701660156" y="71.94000244140625" width="164.08953857421875" height="21.894546508789062" fill="black" rx="2"/><rect x="204.72181701660156" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="220.72181701660156" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="227.72181701660156" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="234.72181701660156" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="241.72181701660156" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="248.72181701660156" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="255.72183227539062" y="74.4963607788086" width="17.78818130493164" height="18.6990909576416" fill="black" rx="2"/><rect x="18.721818923950195" y="116.41363525390625" width="46.68181610107422" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="150.49636840820312" width="25.020000457763672" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="152.41363525390625" width="817.358154296875" height="16.142727851867676" fill="black" rx="2"/><rect x="1010.5127563476562" y="152.41363525390625" width="70.76545333862305" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="182.49636840820312" width="53.94727325439453" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="184.41363525390625" width="817.358154296875" height="16.142727851867676" fill="black" rx="2"/><rect x="1004.4918212890625" y="184.41363525390625" width="76.78636169433594" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="214.49636840820312" width="46.7154541015625" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="216.41363525390625" width="817.358154296875" height="16.142727851867676" fill="black" rx="2"/><rect x="1052.6590576171875" y="216.41363525390625" width="28.619089126586914" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="246.49636840820312" width="53.94727325439453" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="248.41363525390625" width="817.358154296875" height="16.142727851867676" fill="black" rx="2"/><rect x="1052.6590576171875" y="248.41363525390625" width="28.619089126586914" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="278.4963684082031" width="25.020000457763672" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="280.41363525390625" width="817.358154296875" height="16.142727851867676" fill="black" rx="2"/><rect x="1022.5545654296875" y="280.41363525390625" width="58.723636627197266" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="310.4963684082031" width="68.41090774536133" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="312.41363525390625" width="817.358154296875" height="16.142727851867676" fill="black" rx="2"/><rect x="1040.6173095703125" y="312.41363525390625" width="40.66090774536133" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="354.41363525390625" width="40.66090774536133" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="384.4963684082031" width="68.41090774536133" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="386.41363525390625" width="636.7308959960938" height="16.142727851867676" fill="black" rx="2"/><rect x="897.4500122070312" y="386.5" width="183.81658935546875" height="16.0333251953125" fill="black" rx="2"/><rect x="18.721818923950195" y="416.4963684082031" width="111.80181884765625" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="418.41363525390625" width="636.7308959960938" height="16.142727851867676" fill="black" rx="2"/><rect x="869.7666625976562" y="418.5" width="211.49993896484375" height="16.0333251953125" fill="black" rx="2"/><rect x="18.721818923950195" y="462.41363525390625" width="40.66090774536133" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="492.4963684082031" width="111.80181884765625" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="494.41363525390625" width="468.14544677734375" height="16.142727851867676" fill="black" rx="2"/><rect x="679.3627319335938" y="494.41363525390625" width="401.91534423828125" height="16.142730712890625" fill="black" rx="2"/><rect x="18.721818923950195" y="536.4136352539062" width="58.723636627197266" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="566.496337890625" width="111.80181884765625" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="568.4136352539062" width="751.128173828125" height="16.142727851867676" fill="black" rx="2"/><rect x="962.345458984375" y="568.4136352539062" width="118.93272399902344" height="16.142727851867676" fill="black" rx="2"/><rect x="18.721818923950195" y="598.496337890625" width="126.26544952392578" height="18.6990909576416" fill="black" rx="2"/><rect x="139.72181701660156" y="600.4136352539062" width="751.128173828125" height="16.142727851867676" fill="black" rx="2"/><rect x="956.3245239257812" y="600.4136352539062" width="124.9536361694336" height="16.142727851867676" fill="black" rx="2"/></mask></defs>
 
   <!-- outer border -->
-  <rect x="0.5" y="0.5" width="1099" height="679" rx="10" fill="transparent" stroke="#313244"/>
+  <rect x="0.5" y="0.5" width="1099" height="679" rx="10" fill="transparent" stroke="#313244" style="fill:rgba(0, 0, 0, 0);stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
   <!-- header -->
-  <rect x="1" y="1" width="1098" height="43" rx="10" fill="#161b22"/>
-  <rect x="1" y="34" width="1098" height="10" fill="#161b22"/>
-  <line x1="1" y1="44" x2="1099" y2="44" stroke="#30363d" stroke-width="1"/>
-  <circle cx="21" cy="22" r="5.5" fill="#f85149"/>
-  <circle cx="40" cy="22" r="5.5" fill="#d29922"/>
-  <circle cx="59" cy="22" r="5.5" fill="#3fb950"/>
-  <text x="550" y="27" text-anchor="middle" class="mono small" fill="#8b949e">blessedrebus / whoami</text>
+  <rect x="1" y="1" width="1098" height="43" rx="10" fill="#161b22" style="fill:rgb(22, 27, 34);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="1" y="34" width="1098" height="10" fill="#161b22" style="fill:rgb(22, 27, 34);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="1" y1="44" x2="1099" y2="44" stroke="#30363d" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(48, 54, 61);color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="21" cy="22" r="5.5" fill="#f85149" style="fill:rgb(248, 81, 73);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="40" cy="22" r="5.5" fill="#d29922" style="fill:rgb(210, 153, 34);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="59" cy="22" r="5.5" fill="#3fb950" style="fill:rgb(63, 185, 80);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="550" y="27" text-anchor="middle" fill="#8b949e" style="fill:rgb(139, 148, 158);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">blessedrebus / whoami</text>
 
   <!-- INTRO GLITCH -->
-  <g>
-    <g class="glitch-layer-1">
-      <text x="39" y="90"  class="mono small" fill="#f5c2e7">Linux 6.8.1-arch1-1 (tty1)</text>
-      <text x="39" y="112" class="mono small" fill="#f5c2e7">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</text>
-      <text x="39" y="134" class="mono small" fill="#cba6f7">[    0.000000] ACPI: IRQ0 used by override.</text>
-      <text x="39" y="156" class="mono small" fill="#f5c2e7">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
-      <text x="39" y="178" class="mono small" fill="#f5c2e7">[    0.893021] NET: Registered PF_INET6 protocol family</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <text x="39" y="90" fill="#f5c2e7" style="fill:rgb(245, 194, 231);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Linux 6.8.1-arch1-1 (tty1)</text>
+      <text x="39" y="112" fill="#f5c2e7" style="fill:rgb(245, 194, 231);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</text>
+      <text x="39" y="134" fill="#cba6f7" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.000000] ACPI: IRQ0 used by override.</text>
+      <text x="39" y="156" fill="#f5c2e7" style="fill:rgb(245, 194, 231);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
+      <text x="39" y="178" fill="#f5c2e7" style="fill:rgb(245, 194, 231);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.893021] NET: Registered PF_INET6 protocol family</text>
     </g>
-    <g class="glitch-layer-2">
-      <text x="41" y="89"  class="mono small" fill="#89dceb">Linux 6.8.1-arch1-1 (tty1)</text>
-      <text x="41" y="111" class="mono small" fill="#89dceb">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</text>
-      <text x="41" y="133" class="mono small" fill="#89b4fa">[    0.000000] ACPI: IRQ0 used by override.</text>
-      <text x="41" y="155" class="mono small" fill="#89dceb">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
-      <text x="41" y="177" class="mono small" fill="#89dceb">[    0.893021] NET: Registered PF_INET6 protocol family</text>
+    <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <text x="41" y="89" fill="#89dceb" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Linux 6.8.1-arch1-1 (tty1)</text>
+      <text x="41" y="111" fill="#89dceb" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</text>
+      <text x="41" y="133" fill="#89b4fa" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.000000] ACPI: IRQ0 used by override.</text>
+      <text x="41" y="155" fill="#89dceb" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
+      <text x="41" y="177" fill="#89dceb" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.893021] NET: Registered PF_INET6 protocol family</text>
     </g>
-    <g class="glitch-scan">
-      <rect x="24" y="82"  width="760" height="10" fill="rgba(203,166,247,0.10)"/>
-      <rect x="32" y="128" width="690" height="7"  fill="rgba(137,180,250,0.12)"/>
-      <rect x="20" y="170" width="820" height="8"  fill="rgba(243,139,168,0.10)"/>
-      <rect x="0"  y="212" width="1100" height="2" fill="rgba(255,255,255,0.04)"/>
+    <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <rect x="24" y="82" width="760" height="10" fill="rgba(203,166,247,0.10)" style="fill:rgba(203, 166, 247, 0.1);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <rect x="32" y="128" width="690" height="7" fill="rgba(137,180,250,0.12)" style="fill:rgba(137, 180, 250, 0.12);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <rect x="20" y="170" width="820" height="8" fill="rgba(243,139,168,0.10)" style="fill:rgba(243, 139, 168, 0.1);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+      <rect x="0" y="212" width="1100" height="2" fill="rgba(255,255,255,0.04)" style="fill:rgba(255, 255, 255, 0.04);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
     </g>
   </g>
 
-  <!-- BOOT — kernel sequence -->
-  <g class="boottext">
-    <text x="40" y="90"  class="mono small white  b0">Linux 6.8.1-arch1-1 (tty1)</text>
-    <text x="40" y="112" class="mono small muted  b1">[    0.000000] Booting Linux on physical CPU 0x0</text>
-    <text x="40" y="134" class="mono small muted  b2">[    0.000000] ACPI: RSDP 0x00000000000F0490 000024 (v02 BOCHS)</text>
-    <text x="40" y="156" class="mono small ok     b3">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
-    <text x="40" y="178" class="mono small ok     b4">[    0.893021] NET: Registered PF_INET6 protocol family</text>
-    <text x="40" y="200" class="mono small info-c b5">[    1.204871] systemd[1]: systemd 255 running in system mode</text>
-    <text x="40" y="222" class="mono small ok     b6">[    1.388204] systemd[1]: Reached target Basic System.</text>
-    <text x="40" y="244" class="mono small warn   b7">[    1.512093] systemd-udevd[312]: kernel: /dev/sda: unsupported sector size 4096</text>
-    <text x="40" y="266" class="mono small ok     b8">[    2.001337] systemd[1]: Started Network Manager.</text>
-    <text x="40" y="300" class="mono small purple b9">         Starting blessedrebus@arch session</text>
-
-    <g class="spinner-grp spinner-grp-out">
-      <text x="262" y="300" class="mono small purple spin0">|</text>
-      <text x="262" y="300" class="mono small purple spin1">/</text>
-      <text x="262" y="300" class="mono small purple spin2">-</text>
-      <text x="262" y="300" class="mono small purple spin3">\</text>
+  <!-- BOOT -->
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="40" y="90" style="fill:rgb(205, 214, 244);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Linux 6.8.1-arch1-1 (tty1)</text>
+    <text x="40" y="112" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.000000] Booting Linux on physical CPU 0x0</text>
+    <text x="40" y="134" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.000000] ACPI: RSDP 0x00000000000F0490 000024 (v02 BOCHS)</text>
+    <text x="40" y="156" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.412033] pci 0000:00:02.0: vgaarb: setting as boot VGA device</text>
+    <text x="40" y="178" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    0.893021] NET: Registered PF_INET6 protocol family</text>
+    <text x="40" y="200" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    1.204871] systemd[1]: systemd 255 running in system mode</text>
+    <text x="40" y="222" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    1.388204] systemd[1]: Reached target Basic System.</text>
+    <text x="40" y="244" style="fill:rgb(249, 226, 175);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    1.512093] systemd-udevd[312]: kernel: /dev/sda: unsupported sector size 4096</text>
+    <text x="40" y="266" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">[    2.001337] systemd[1]: Started Network Manager.</text>
+    <text x="40" y="300" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session</text>
+    <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <text x="262" y="300" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">|</text>
+      <text x="262" y="300" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">/</text>
+      <text x="262" y="300" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">-</text>
+      <text x="262" y="300" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">\</text>
     </g>
-
-    <text x="40" y="300" class="mono small ok b10">         Starting blessedrebus@arch session  [ DONE ]</text>
+    <text x="40" y="300" style="fill:rgb(166, 227, 161);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">         Starting blessedrebus@arch session  [ DONE ]</text>
   </g>
 
   <!-- PROMPT -->
-  <g class="prompt-static">
-    <text x="24"  y="88" class="mono body faint">❯</text>
-    <text x="46"  y="88" class="mono title white">blessedrebus@arch</text>
-    <text x="210" y="88" class="mono body faint">~</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="88" style="fill:rgb(69, 71, 90);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">❯</text>
+    <text x="46" y="88" style="fill:rgb(205, 214, 244);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:15px;font-weight:700;text-anchor:start;dominant-baseline:auto">blessedrebus@arch</text>
+    <text x="210" y="88" style="fill:rgb(69, 71, 90);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">~</text>
   </g>
 
   <!-- typewriter whoami -->
-  <text x="226" y="88" class="mono body muted tw-w">w</text>
-  <text x="233" y="88" class="mono body muted tw-h">h</text>
-  <text x="240" y="88" class="mono body muted tw-o">o</text>
-  <text x="247" y="88" class="mono body muted tw-a">a</text>
-  <text x="254" y="88" class="mono body muted tw-m">m</text>
-  <text x="261" y="88" class="mono body muted tw-i">i</text>
-  <rect class="cursor" x="274" y="75" width="9" height="14" fill="#cdd6f4"/>
+  <text x="226" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">w</text>
+  <text x="233" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">h</text>
+  <text x="240" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">o</text>
+  <text x="247" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">a</text>
+  <text x="254" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">m</text>
+  <text x="261" y="88" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">i</text>
+  <rect x="274" y="75" width="9" height="14" fill="#cdd6f4" style="fill:rgb(205, 214, 244);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- SYSTEM -->
-  <text x="24" y="128" class="mono small muted sh-system">System</text>
-  <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system"/>
-  <g class="r0">
-    <text x="24" y="164" class="mono body blue">OS</text>
-    <text x="145" y="164" class="mono small" fill="#1e2535">......................................................................................................................................</text>
-    <text x="1032" y="167" text-anchor="middle" class="mono small blue">Arch Linux</text>
+  <!-- ── SYSTEM ── -->
+  <text x="24" y="128" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">System</text>
+  <line x1="90" y1="124" x2="1076" y2="124" mask="url(#imagine-text-gaps-d07s03)" style="fill:none;stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-dasharray:1100px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Right-aligned value anchor: x="1076" text-anchor="end" for all rows -->
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="164" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">OS</text>
+    <text x="145" y="164" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">......................................................................................................................................</text>
+    <text x="1076" y="164" text-anchor="end" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Arch Linux</text>
   </g>
-  <g class="r1">
-    <text x="24" y="196" class="mono body blue">Uptime</text>
-    <text x="145" y="196" class="mono small" fill="#1e2535">......................................................................................................................................</text>
-    <text x="1031" y="199" text-anchor="middle" class="mono small blue">Since Birth</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="196" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Uptime</text>
+    <text x="145" y="196" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">......................................................................................................................................</text>
+    <text x="1076" y="196" text-anchor="end" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Since Birth</text>
   </g>
-  <g class="r2">
-    <text x="24" y="228" class="mono body blue">Shell</text>
-    <text x="145" y="228" class="mono small" fill="#1e2535">......................................................................................................................................</text>
-    <text x="1050" y="231" text-anchor="middle" class="mono small blue">ZSH</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="228" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Shell</text>
+    <text x="145" y="228" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">......................................................................................................................................</text>
+    <text x="1076" y="228" text-anchor="end" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">ZSH</text>
   </g>
-  <g class="r3">
-    <text x="24" y="260" class="mono body blue">Editor</text>
-    <text x="145" y="260" class="mono small" fill="#1e2535">......................................................................................................................................</text>
-    <text x="1050" y="263" text-anchor="middle" class="mono small blue">Vim</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="260" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Editor</text>
+    <text x="145" y="260" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">......................................................................................................................................</text>
+    <text x="1076" y="260" text-anchor="end" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Vim</text>
   </g>
-  <g class="r4">
-    <text x="24" y="292" class="mono body blue">WM</text>
-    <text x="145" y="292" class="mono small" fill="#1e2535">......................................................................................................................................</text>
-    <text x="1038" y="295" text-anchor="middle" class="mono small blue">Hyprland</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="292" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">WM</text>
+    <text x="145" y="292" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">......................................................................................................................................</text>
+    <text x="1076" y="292" text-anchor="end" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Hyprland</text>
   </g>
-  <g class="r5">
-    <text x="24" y="324" class="mono body blue">Terminal</text>
-    <text x="145" y="324" class="mono small" fill="#1e2535">......................................................................................................................................</text>
-    <text x="1050" y="327" text-anchor="middle" class="mono small blue">Kitty</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="324" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Terminal</text>
+    <text x="145" y="324" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">......................................................................................................................................</text>
+    <text x="1076" y="324" text-anchor="end" style="fill:rgb(137, 180, 250);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Kitty</text>
   </g>
 
-  <!-- FOCUS -->
-  <text x="24" y="366" class="mono small muted sh-focus">Focus</text>
-  <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus"/>
-    <g class="r6">
-    <text x="24" y="398" class="mono body pink">Security</text>
-    <text x="145" y="398" class="mono small" fill="#1e2535">........................................................................................................</text>
-    <text x="910"  y="401" text-anchor="middle" class="mono small pink">Ethical Hacking</text>
-    <text x="965"  y="401" text-anchor="middle" class="mono small muted" font-size="6">|</text>
-    <text x="1010" y="401" text-anchor="middle" class="mono small pink">Red Teaming</text>
-    </g>
+  <!-- ── FOCUS ── -->
+  <text x="24" y="366" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Focus</text>
+  <line x1="76" y1="362" x2="1076" y2="362" style="fill:none;stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-dasharray:1100px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-    <g class="r7">
-    <text x="24" y="430" class="mono body peach">Infrastructure</text>
-    <text x="145" y="430" class="mono small" fill="#1e2535">........................................................................................................</text>
-    <text x="822"  y="433" text-anchor="middle" class="mono small peach">Kubernetes</text>
-    <text x="862"  y="433" text-anchor="middle" class="mono small muted" font-size="6">|</text>
-    <text x="902"  y="433" text-anchor="middle" class="mono small peach">Proxmox</text>
-    <text x="934"  y="433" text-anchor="middle" class="mono small muted" font-size="6">|</text>
-    <text x="964"  y="433" text-anchor="middle" class="mono small peach">AWS</text>
-    <text x="984"  y="433" text-anchor="middle" class="mono small muted" font-size="6">|</text>
-    <text x="1018" y="433" text-anchor="middle" class="mono small peach">Azure</text>
-    </g>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="398" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Security</text>
+    <text x="145" y="398" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">........................................................................................................</text>
+    <!-- pipe-separated values, right-aligned as a single block -->
+    <text x="1076" y="398" text-anchor="end" style="fill:rgb(243, 139, 168);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Ethical Hacking  <tspan font-size="8" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:8px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  Red Teaming</text>
+  </g>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="430" style="fill:rgb(250, 179, 135);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Infrastructure</text>
+    <text x="145" y="430" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">........................................................................................................</text>
+    <text x="1076" y="430" text-anchor="end" style="fill:rgb(250, 179, 135);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">Kubernetes  <tspan font-size="8" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:8px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  Proxmox  <tspan font-size="8" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:8px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  AWS  <tspan font-size="8" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:8px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  Azure</text>
+  </g>
 
-  <!-- OTHER -->
-  <text x="24" y="474" class="mono small muted sh-other">Other</text>
-  <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other"/>
-    <g class="r8">
-    <text x="24" y="506" class="mono body purple">Certifications</text>
-    <text x="145" y="506" class="mono small" fill="#1e2535">............................................................................</text>
-    <text x="625"  y="509" text-anchor="middle" class="mono small purple">OSCP</text>
-    <text x="648"  y="509" text-anchor="middle" class="mono small muted">|</text>
-    <text x="706"  y="509" text-anchor="middle" class="mono small purple">Kubestronaut</text>
-    <text x="754"  y="509" text-anchor="middle" class="mono small muted">|</text>
-    <text x="840"  y="509" text-anchor="middle" class="mono small purple">AWS Security Specialist</text>
-    <text x="926"  y="509" text-anchor="middle" class="mono small muted">|</text>
-    <text x="964"  y="509" text-anchor="middle" class="mono small purple">Terraform</text>
-    <text x="1002" y="509" text-anchor="middle" class="mono small muted">|</text>
-    <text x="1038" y="509" text-anchor="middle" class="mono small purple">Cisco</text>
-    </g>
+  <!-- ── OTHER ── -->
+  <text x="24" y="474" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Other</text>
+  <line x1="76" y1="470" x2="1076" y2="470" style="fill:none;stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-dasharray:1100px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="506" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Certifications</text>
+    <text x="145" y="506" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">............................................................................</text>
+    <text x="1076" y="506" text-anchor="end" style="fill:rgb(203, 166, 247);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">OSCP  <tspan style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  Kubestronaut  <tspan style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  AWS Security Specialist  <tspan style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  Terraform  <tspan style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">|</tspan>  Cisco</text>
+  </g>
 
-  <!-- PROJECTS -->
-  <text x="24" y="548" class="mono small muted sh-projects">Projects</text>
-  <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects"/>
-  <g class="r9">
-    <text x="24" y="580" class="mono body teal">Krawl Honeypot</text>
-    <text x="145" y="580" class="mono small" fill="#1e2535">...........................................................................................................................</text>
-    <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank">
-      <text x="989" y="583" text-anchor="middle" class="mono small cyan">BlessedRebuS/Krawl</text>
+  <!-- ── PROJECTS ── -->
+  <text x="24" y="548" style="fill:rgb(108, 112, 134);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">Projects</text>
+  <line x1="90" y1="544" x2="1076" y2="544" style="fill:none;stroke:rgb(49, 50, 68);color:rgb(251, 251, 254);stroke-width:1px;stroke-dasharray:1100px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="580" style="fill:rgb(148, 226, 213);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Krawl Honeypot</text>
+    <text x="145" y="580" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">...........................................................................................................................</text>
+    <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <text x="1076" y="580" text-anchor="end" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">BlessedRebuS/Krawl</text>
     </a>
   </g>
-  <g class="r10">
-    <text x="24" y="612" class="mono body teal">Kentra Framework</text>
-    <text x="145" y="612" class="mono small" fill="#1e2535">...........................................................................................................................</text>
-    <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank">
-      <text x="985" y="615" text-anchor="middle" class="mono small cyan">BlessedRebuS/Kentra</text>
+  <g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <text x="24" y="612" style="fill:rgb(148, 226, 213);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">Kentra Framework</text>
+    <text x="145" y="612" fill="#1e2535" style="fill:rgb(30, 37, 53);stroke:none;color:rgb(251, 251, 254);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:start;dominant-baseline:auto">...........................................................................................................................</text>
+    <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+      <text x="1076" y="612" text-anchor="end" style="fill:rgb(137, 220, 235);stroke:none;color:rgb(0, 202, 219);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:10px;font-weight:400;text-anchor:end;dominant-baseline:auto">BlessedRebuS/Kentra</text>
     </a>
   </g>
 </svg>
