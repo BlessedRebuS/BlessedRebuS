@@ -141,7 +141,7 @@
   <circle cx="21" cy="22" r="5.5" fill="#f85149"/>
   <circle cx="40" cy="22" r="5.5" fill="#d29922"/>
   <circle cx="59" cy="22" r="5.5" fill="#3fb950"/>
-  <text x="550" y="27" text-anchor="middle" class="mono small" fill="#8b949e">blessedrebus / whoami</text>
+  <text x="550" y="27" text-anchor="middle" class="mono small" fill="#a6e3a1">blessedrebus / whoami</text>
 
   <!-- INTRO GLITCH -->
   <g>
@@ -198,17 +198,17 @@
   </g>
 
   <!-- typewriter whoami -->
-  <text x="226" y="88" class="mono body muted tw-w">w</text>
-  <text x="233" y="88" class="mono body muted tw-h">h</text>
-  <text x="240" y="88" class="mono body muted tw-o">o</text>
-  <text x="247" y="88" class="mono body muted tw-a">a</text>
-  <text x="254" y="88" class="mono body muted tw-m">m</text>
-  <text x="261" y="88" class="mono body muted tw-i">i</text>
-  <rect class="cursor" x="274" y="75" width="9" height="14" fill="#cdd6f4"/>
+  <text x="226" y="88" class="mono body tw-w" fill="#a6e3a1">w</text>
+  <text x="233" y="88" class="mono body tw-h" fill="#a6e3a1">h</text>
+  <text x="240" y="88" class="mono body tw-o" fill="#a6e3a1">o</text>
+  <text x="247" y="88" class="mono body tw-a" fill="#a6e3a1">a</text>
+  <text x="254" y="88" class="mono body tw-m" fill="#a6e3a1">m</text>
+  <text x="261" y="88" class="mono body tw-i" fill="#a6e3a1">i</text>
+  <rect class="cursor" x="274" y="75" width="9" height="14" fill="#40a02f"/>
 
   <!-- SYSTEM -->
-  <text x="24" y="128" class="mono small muted sh-system">System</text>
-  <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system"/>
+  <text x="24" y="128" class="mono small sh-system" fill="#a6e3a1" opacity="0.65">System</text>
+  <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system" stroke="#a6e3a1" opacity="0.5"/>
   <g class="r0">
     <text x="24" y="164" class="mono body blue">OS</text>
     <text x="145" y="164" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
@@ -241,8 +241,8 @@
   </g>
 
   <!-- FOCUS -->
-  <text x="24" y="366" class="mono small muted sh-focus">Focus</text>
-  <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus"/>
+  <text x="24" y="366" class="mono small sh-focus" fill="#a6e3a1" opacity="0.65">Focus</text>
+  <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus" stroke="#a6e3a1" opacity="0.5"/>
     <g class="r6">
     <text x="24" y="398" class="mono body pink">Security</text>
     <text x="145" y="398" class="mono small" fill="#1e2535">......................................................................................................................</text>
@@ -256,8 +256,8 @@
     </g>
 
   <!-- OTHER -->
-  <text x="24" y="474" class="mono small muted sh-other">Other</text>
-  <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other"/>
+  <text x="24" y="474" class="mono small sh-other" fill="#a6e3a1" opacity="0.65">Other</text>
+  <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other" stroke="#a6e3a1" opacity="0.5"/>
     <g class="r8">
     <text x="24" y="506" class="mono body purple">Certifications</text>
     <text x="145" y="506" class="mono small" fill="#1e2535">...................................................................................</text>
@@ -266,8 +266,8 @@
 
 
   <!-- PROJECTS -->
-  <text x="24" y="548" class="mono small muted sh-projects">Projects</text>
-  <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects"/>
+  <text x="24" y="548" class="mono small sh-projects" fill="#a6e3a1" opacity="0.65">Projects</text>
+  <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects" stroke="#a6e3a1" opacity="0.5"/>
   <g class="r9">
     <text x="24" y="580" class="mono body teal">Krawl Honeypot</text>
     <text x="145" y="580" class="mono small" fill="#1e2535">.................................................................................................................................</text>
