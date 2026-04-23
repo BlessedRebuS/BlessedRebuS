@@ -19,14 +19,6 @@
       .info-c { fill: #89b4fa; }
       .warn { fill: #f9e2af; }
       .line { stroke: #313244; stroke-width: 1; fill: none; }
-      .custom-sec-infra { fill: #2d60a5; }
-      .custom-cert { fill: #3669a8; }
-      .custom-system { fill: #7556a7; }
-      .custom-focus { fill: #5e409c; }
-      .custom-projects { fill: #7d60ac; }
-      .custom-project-label { fill: #1a4c9f; }
-      .custom-project-link { fill: #63449f; }
-      .glow-purple { fill: #b19cd9; opacity: 0.9; filter: drop-shadow(0 0 3px rgba(177, 156, 217, 0.6)); }
       a { text-decoration: none; }
 
       @keyframes blink {
@@ -215,79 +207,79 @@
   <rect class="cursor" x="274" y="75" width="9" height="14" fill="#40a02f"/>
 
   <!-- SYSTEM -->
-  <text x="24" y="128" class="mono small sh-system glow-purple">SYSTEM</text>
+  <text x="24" y="128" class="mono small sh-system" fill="#a6e3a1" opacity="0.65">SYSTEM</text>
   <line x1="90" y1="124" x2="1076" y2="124" class="line dl-system" stroke="#a6e3a1" opacity="0.5"/>
   <g class="r0">
     <text x="24" y="164" class="mono body blue">OS</text>
     <text x="145" y="164" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
-    <text x="1070" y="167" text-anchor="end" class="mono small custom-system">Arch Linux</text>
+    <text x="1070" y="167" text-anchor="end" class="mono small purple">Arch Linux</text>
   </g>
   <g class="r1">
     <text x="24" y="196" class="mono body blue">Uptime</text>
     <text x="145" y="196" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
-    <text x="1070" y="199" text-anchor="end" class="mono small custom-system">Since Birth</text>
+    <text x="1070" y="199" text-anchor="end" class="mono small purple">Since Birth</text>
   </g>
   <g class="r2">
     <text x="24" y="228" class="mono body blue">Shell</text>
     <text x="145" y="228" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
-    <text x="1070" y="231" text-anchor="end" class="mono small custom-system">ZSH</text>
+    <text x="1070" y="231" text-anchor="end" class="mono small purple">ZSH</text>
   </g>
   <g class="r3">
     <text x="24" y="260" class="mono body blue">Editor</text>
     <text x="145" y="260" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
-    <text x="1070" y="263" text-anchor="end" class="mono small custom-system">Vim</text>
+    <text x="1070" y="263" text-anchor="end" class="mono small purple">Vim</text>
   </g>
   <g class="r4">
     <text x="24" y="292" class="mono body blue">WM</text>
     <text x="145" y="292" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
-    <text x="1070" y="295" text-anchor="end" class="mono small custom-system">Hyprland</text>
+    <text x="1070" y="295" text-anchor="end" class="mono small purple">Hyprland</text>
   </g>
   <g class="r5">
     <text x="24" y="324" class="mono body blue">Terminal</text>
     <text x="145" y="324" class="mono small" fill="#1e2535">..........................................................................................................................................</text>
-    <text x="1070" y="327" text-anchor="end" class="mono small custom-system">Kitty</text>
+    <text x="1070" y="327" text-anchor="end" class="mono small purple">Kitty</text>
   </g>
 
   <!-- FOCUS -->
-  <text x="24" y="366" class="mono small sh-focus glow-purple">FOCUS</text>
+  <text x="24" y="366" class="mono small sh-focus" fill="#a6e3a1" opacity="0.65">FOCUS</text>
   <line x1="76" y1="362" x2="1076" y2="362" class="line dl-focus" stroke="#a6e3a1" opacity="0.5"/>
     <g class="r6">
-    <text x="24" y="398" class="mono body custom-sec-infra">Security</text>
+    <text x="24" y="398" class="mono body blue">Security</text>
     <text x="145" y="398" class="mono small" fill="#1e2535">......................................................................................................................</text>
-    <text x="1070" y="401" text-anchor="end" class="mono small custom-focus">Ethical Hacking | Red Teaming</text>
+    <text x="1070" y="401" text-anchor="end" class="mono small purple">Ethical Hacking | Red Teaming</text>
     </g>
 
     <g class="r7">
-    <text x="24" y="430" class="mono body custom-sec-infra">Infrastructure</text>
+    <text x="24" y="430" class="mono body blue">Infrastructure</text>
     <text x="145" y="430" class="mono small" fill="#1e2535">....................................................................................................................</text>
-    <text x="1070" y="433" text-anchor="end" class="mono small custom-focus">Kubernetes | Proxmox | AWS | Azure</text>
+    <text x="1070" y="433" text-anchor="end" class="mono small purple">Kubernetes | Proxmox | AWS | Azure</text>
     </g>
 
   <!-- OTHER -->
-  <text x="24" y="474" class="mono small sh-other glow-purple">OTHER</text>
+  <text x="24" y="474" class="mono small sh-other" fill="#a6e3a1" opacity="0.65">OTHER</text>
   <line x1="76" y1="470" x2="1076" y2="470" class="line dl-other" stroke="#a6e3a1" opacity="0.5"/>
     <g class="r8">
-    <text x="24" y="506" class="mono body custom-cert">Certifications</text>
+    <text x="24" y="506" class="mono body blue">Certifications</text>
     <text x="145" y="506" class="mono small" fill="#1e2535">...................................................................................</text>
-    <text x="1070" y="509" text-anchor="end" class="mono small custom-projects">OSCP | Kubestronaut | AWS Security Specialist | Terraform | Cisco</text>
+    <text x="1070" y="509" text-anchor="end" class="mono small purple">OSCP | Kubestronaut | AWS Security Specialist | Terraform | Cisco</text>
     </g>
 
 
   <!-- PROJECTS -->
-  <text x="24" y="548" class="mono small sh-projects glow-purple">PROJECTS</text>
+  <text x="24" y="548" class="mono small sh-projects" fill="#a6e3a1" opacity="0.65">PROJECTS</text>
   <line x1="90" y1="544" x2="1076" y2="544" class="line dl-projects" stroke="#a6e3a1" opacity="0.5"/>
   <g class="r9">
-    <text x="24" y="580" class="mono body custom-project-label">Krawl Honeypot</text>
+    <text x="24" y="580" class="mono body blue">Krawl Honeypot</text>
     <text x="145" y="580" class="mono small" fill="#1e2535">.................................................................................................................................</text>
     <a xlink:href="https://github.com/BlessedRebuS/Krawl" href="https://github.com/BlessedRebuS/Krawl" target="_blank">
-      <text x="1070" y="583" text-anchor="end" class="mono small custom-project-link">BlessedRebuS/Krawl</text>
+      <text x="1070" y="583" text-anchor="end" class="mono small purple">BlessedRebuS/Krawl</text>
     </a>
   </g>
   <g class="r10">
-    <text x="24" y="612" class="mono body custom-project-label">Kentra Framework</text>
+    <text x="24" y="612" class="mono body blue">Kentra Framework</text>
     <text x="145" y="612" class="mono small" fill="#1e2535">..................................................................................................................................</text>
     <a xlink:href="https://github.com/BlessedRebuS/Kentra" href="https://github.com/BlessedRebuS/Kentra" target="_blank">
-      <text x="1070" y="615" text-anchor="end" class="mono small custom-project-link">BlessedRebuS/Kentra</text>
+      <text x="1070" y="615" text-anchor="end" class="mono small purple">BlessedRebuS/Kentra</text>
     </a>
   </g>
 </svg>
