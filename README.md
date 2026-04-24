@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:58a6ff,35:1f6feb,70:8957e5,100:bc8cff&height=120&section=header&text=Patrick+Di+Fazio&fontSize=32&fontColor=ffffff&fontAlignY=65&desc=Offensive+Security+%C2%B7+Infrastructure+%C2%B7+Kubernetes&descAlignY=85&descSize=14&descColor=e6edf3" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1f6feb,50:8957e5,100:bc8cff&height=140&section=header&text=BlessedRebuS&fontSize=36&fontColor=ffffff&fontAlignY=62&desc=Offensive+Security+%C2%B7+Infrastructure+%C2%B7+Kubernetes&descAlignY=82&descSize=14&descColor=0d1117" width="100%" />
 
 <img src="https://github.com/BlessedRebuS/BlessedRebuS/blob/beta/img/boot_animation.svg" width="100%" />
 
