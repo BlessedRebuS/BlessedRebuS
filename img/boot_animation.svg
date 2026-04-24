@@ -88,13 +88,13 @@
       @keyframes sp2 { 50%,74%{opacity:1} 0%,49%,75%,100%{opacity:0} }
       @keyframes sp3 { 75%,100%{opacity:1} 0%,74%{opacity:0} }
 
-      .spin0 { opacity:1; animation: sp0 0.5s step-end infinite; animation-delay: 2.5s; }
-      .spin1 { opacity:0; animation: sp1 0.5s step-end infinite; animation-delay: 2.5s; }
-      .spin2 { opacity:0; animation: sp2 0.5s step-end infinite; animation-delay: 2.5s; }
-      .spin3 { opacity:0; animation: sp3 0.5s step-end infinite; animation-delay: 2.5s; }
+      .spin0 { opacity:1; animation: sp0 0.5s step-end infinite; animation-delay: 0s; }
+      .spin1 { opacity:0; animation: sp1 0.5s step-end infinite; animation-delay: 0s; }
+      .spin2 { opacity:0; animation: sp2 0.5s step-end infinite; animation-delay: 0s; }
+      .spin3 { opacity:0; animation: sp3 0.5s step-end infinite; animation-delay: 0s; }
 
       @keyframes spinnerout { 0%{opacity:1} 100%{opacity:0} }
-      .spinner-grp     { opacity:0; animation: fadein 0.1s forwards; animation-delay: 2.4s; }
+      .spinner-grp     { opacity:0; animation: fadein 0.1s forwards; animation-delay: 4.06s; }
       .spinner-grp-out { animation: spinnerout 0.3s forwards; animation-delay: 4.9s; }
 
       .b0  { opacity:0; animation: fadein 0.15s forwards; animation-delay: 0.1s; }
