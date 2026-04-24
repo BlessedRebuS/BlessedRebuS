@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:58a6ff,35:1f6feb,70:8957e5,100:bc8cff&height=120&section=header&text=Patrick+Di+Fazio&fontSize=32&fontColor=ffffff&fontAlignY=65&desc=Offensive+Security+%C2%B7+Infrastructure+%C2%B7+Kubernetes&descAlignY=85&descSize=14&descColor=e6edf3" width="100%" />
 
-<img src="https://github.com/BlessedRebuS/BlessedRebuS/blob/beta/img/blessedrebus_svg_animated.svg" width="100%" />
+<img src="https://github.com/BlessedRebuS/BlessedRebuS/blob/beta/img/boot_animation.svg" width="100%" />
 
 </div>
 
@@ -78,6 +78,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/patrick-di-fazio-9a0b72145)
 ![Profile Views](https://komarev.com/ghpvc/?username=blessedrebus&style=flat-square&color=8957e5&label=Views)
 
+</div>
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:bc8cff,35:8957e5,70:1f6feb,100:58a6ff&height=100&section=footer" width="100%" />
 
-</div>
